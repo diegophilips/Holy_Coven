@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_171102) do
+ActiveRecord::Schema.define(version: 2020_11_24_111704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,17 @@ ActiveRecord::Schema.define(version: 2020_11_23_171102) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "genre"
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "projectservices", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_projectservices_on_project_id"
+    t.index ["service_id"], name: "index_projectservices_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -80,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_11_23_171102) do
 
   add_foreign_key "bookings", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "projectservices", "projects"
+  add_foreign_key "projectservices", "services"
   add_foreign_key "userprojects", "projects"
   add_foreign_key "userprojects", "users"
   add_foreign_key "userservices", "services"
