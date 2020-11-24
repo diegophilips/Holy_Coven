@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @user = current_user
     @user_projects = @user.projects
     @user_bookings = @user.bookings
+
   end
 
 end

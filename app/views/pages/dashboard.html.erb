@@ -1,1 +1,27 @@
 <h1>hi <%= @user.artist_name %></h1>
+
+
+<% if @user_projects.empty? == true %>
+  <p> You do not have any projects yet!</p>
+<% else %>
+  <% @user_projects.each do |project|%>
+    <p> <%= project %> </p>
+  <% end %>
+
+  <% if @user_bookings.empty? == true %>
+    <p> You do not have any bookings yet!</p>
+  <% else %>
+    <% @user_bookings.each do |booking|%>
+      <p> <%= booking %> </p>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Start a new project", new_project_path %>
+
+
+<% end %>
+
+
+<%= link_to "Start a new project", new_project_path %>
+
+
