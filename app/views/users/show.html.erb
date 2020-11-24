@@ -1,1 +1,9 @@
-<h1> Non pro </h1>
+<h1> Your Page </h1>
+
+<% @users.each do |user|%>
+
+<h6><%= user.first_name %></h6>
+<h6><%= user.last_name %></h6>
+<h6><%= user.artist_name %></h6>
+
+<% end %>

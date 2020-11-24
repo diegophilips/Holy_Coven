@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     # show the profile page
+    @users = User.all
     @user = User.find(params[:id])
     if @user.pro
       # show pro profile
