@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+puts "Starting seed file"
 User.destroy_all
-pro = User.create(first_name: "Albane", last_name: "Tonnelier", bio: "Albane is a young graphic designer", pro: true)
-
+test = User.create!(first_name: "Albane", last_name: "Tonnelier", bio: "Albane is a young graphic designer", email: "albane@albane.com", password: "Qwerty", pro: true)
+puts "made #{User.count} users"

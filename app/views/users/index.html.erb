@@ -1,1 +1,9 @@
+<h1>Index of Professionals</h1>
 
+<% @pros.each do |pro|%>
+
+<h6><%= pro.first_name %></h6>
+<h6><%= pro.last_name %></h6>
+<h6><%= pro.bio %></h6>
+
+<% end %>
