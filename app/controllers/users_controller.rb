@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     # filter to pros only
     @users = User.where(pro: true)
+    render :index
   end
 
   def show
