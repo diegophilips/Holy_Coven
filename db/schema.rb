@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_145837) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "genre"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
