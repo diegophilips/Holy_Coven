@@ -1,3 +1,10 @@
-<%= @project.title %>
-<%= @project.description %>
+<%= @project.title %> <br>
+<%= @project.description %> <br>
 <%= @project.status %>
+<p> You started this project on <%= @project.start_date %></p>
+
+
+<%= link_to "Book in your next step!", services_path %> <br>
+
+<%= link_to "Edit your project", edit_project_path(@project), class: "btn btn-dark" %> <br>
+<%= link_to "Delete your project :(", projects_path(@project), class: "btn btn-dark", method: :delete, data: { confirm: "Are you sure you wish to delete your project?" }  %>
