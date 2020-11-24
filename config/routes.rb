@@ -13,6 +13,8 @@ resources :reviews, only: [:edit, :update, :destroy]
 resources :services, only: [:index]
 
 get :pros, to: "users#index"
+get :about, to: "pages#about"
+get :dashboard, to: "pages#dashboard"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
