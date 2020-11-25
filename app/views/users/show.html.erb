@@ -1,5 +1,23 @@
-<h1> Your Profile </h1>
+<h1> My Profile </h1>
 
 <h6><%= @user.first_name %></h6>
 <h6><%= @user.last_name %></h6>
 <h6><%= @user.artist_name %></h6>
+
+
+<h3> projects</h3>
+<h6>In progress</h6>
+  <% @user_projects.each do |demo_project| %>
+    <% if demo_project.status == "Demo Recorded" %>
+      <%= demo_project.title %><br>
+    <% end %>
+  <% end %>
+
+
+
+<h6>My completed projects</h6>
+  <% @user_projects.each do |demo_project| %>
+    <% if demo_project.status == "Completed" %>
+      <%= demo_project.title %><br>
+    <% end %>
+  <% end %>

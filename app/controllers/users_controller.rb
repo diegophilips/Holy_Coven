@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     # show the profile page
     @users = User.all
     @user = User.find(params[:id])
+    @user_projects = @user.projects
+
     if @user.pro
       # show pro profile
       render :pro
