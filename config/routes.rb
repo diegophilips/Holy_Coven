@@ -11,6 +11,7 @@ end
 
 resources :reviews, only: [:edit, :update, :destroy]
 resources :services, only: [:index]
+resources :userservices, only: [:new, :create]
 
 get :pros, to: "users#index"
 get :about, to: "pages#about"
