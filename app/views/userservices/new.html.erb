@@ -1,0 +1,5 @@
+<%= simple_form_for(@userservice) do |f| %>
+<%= f.input :service_id, collection: Service.all - current_user.services %>
+<%= f.submit %>
+
+<% end %>

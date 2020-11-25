@@ -1,28 +1,9 @@
-<h1>hi <%= @user.artist_name %></h1>
 
-
-<% if @user_projects.empty? == true %>
-  <p> You do not have any projects yet!</p>
-  <%= link_to "Start a new project!", new_project_path, class: "btn btn-danger" %>
-<% else %>
-  <% @user_projects.each do |project|%>
-
-    <p> <%= link_to project.title, project_path(project) %> </p>
-
-  <% end %>
-
-  <% if @user_bookings.empty? == true %>
-    <p> You do not have any bookings yet!</p>
-    <p> <%= link_to "Book a new service", services_path, class: "btn btn-outline-danger" %></p>
-  <% else %>
-    <% @user_bookings.each do |booking|%>
-      <p> <%= booking %> </p>
-    <% end %>
-  <% end %>
-  <%= link_to "Start a new project", new_project_path, class: "btn btn-outline-dark" %>
-
+<% if @user.pro %>
+    <%= render "pro_dashboard", user: @user %>
+    <% else %>
+    <%= render "artist_dashboard", user: @user %>
 <% end %>
-
 
 
 

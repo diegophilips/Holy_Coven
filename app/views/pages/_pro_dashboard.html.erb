@@ -1,0 +1,10 @@
+<h1>Hello Pro</h1>
+
+<%= link_to "Add a service", new_userservice_path %>
+
+
+<ul>
+ <% user.services.each do |service| %>
+  <li> <%= service.name %> </li>
+  <% end %>
+ </ul>
