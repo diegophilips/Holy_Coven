@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @user = current_user
+
   end
 
   def show
