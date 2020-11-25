@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @user = User.find(params[:id])
-    @pro = User.find(params[:id])
+    @user = User.find(params[:user_id])
+    @pro = User.find(params[:pro_id])
   end
 
   def create
@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @bookings = Booking.all
   end
 
   def edit
