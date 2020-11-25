@@ -1,1 +1,7 @@
 <h1>Holy Coven</h1>
+  <% if user_signed_in?%>
+    <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-dark" %>
+  <% else %>
+    <%= link_to "Explore the Coven", new_user_registration_path, class: "btn btn-danger" %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn-dark" %>
+  <% end %>
