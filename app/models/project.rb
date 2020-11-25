@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :genre, presence: true
 
-  STATUTES = ["Writing in Progress", "Demo Recorded", "Production in Progress", "Ready to be released"]
+  STATUTES = ["Writing in Progress", "Demo Recorded", "Production in Progress", "Ready to be released", "Completed"]
   GENRES = ["Blues", "Classic Rock","Country","Dance","Disco","Funk","Grunge",
  "Hip-Hop","Jazz","Metal","New Age","Oldies","Other","Pop","R&B",
  "Rap","Reggae","Rock","Techno","Industrial","Alternative","Ska",
