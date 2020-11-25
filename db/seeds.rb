@@ -9,3 +9,13 @@ puts "Starting seed file"
 User.destroy_all
 test = User.create!(first_name: "Albane", last_name: "Tonnelier", bio: "Albane is a young graphic designer", email: "albane@albane.com", password: "Qwerty", pro: true)
 puts "made #{User.count} users"
+
+
+Service.destroy_all
+Service.create!(type_of_service: "Social media management" , description: " Description : add it later" )
+Service.create!(type_of_service: "Marketing" , description: "Description : add it later" )
+Service.create!(type_of_service: "PR and playlisting" , description: "Description : add it later" )
+Service.create!(type_of_service: "Production" , description: "Description : add it later" )
+Service.create!(type_of_service: "Creative coaching " , description: "Description : add it later" )
+Service.create!(type_of_service: "Legal & administrative advising " , description: "Description : add it later" )
+puts "made #{Service.count} Services"
