@@ -5,7 +5,7 @@
   <p> You do not have any projects yet!</p>
 <% else %>
   <% @user_projects.each do |project|%>
-    <p> <%= project %> </p>
+    <p> <%= project.title %> </p>
   <% end %>
 
   <% if @user_bookings.empty? == true %>
