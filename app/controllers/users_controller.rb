@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
 
   def index
+    @service = Service.find_by(type_of_service: params[:service_name])
     @user = current_user
     # filter to pros only
+    if @service
+    @pros = @service.users
+  else
     @pros = User.where(pro: true)
+  end
     render :index
   end
 
