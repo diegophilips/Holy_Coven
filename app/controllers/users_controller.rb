@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @user = current_user
     # filter to pros only
     @pros = User.where(pro: true)
     render :index

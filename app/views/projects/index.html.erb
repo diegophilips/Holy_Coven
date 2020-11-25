@@ -1,5 +1,4 @@
 <% @projects.each do |project| %>
-<h4> <%= project.title %> </h4>
-<p> <%= project.status %> </p>
+  <h4> <%=link_to project.title, project_path(project) %> </h4>
+  <p> <%= project.status %> </p>
 <% end  %>
-
