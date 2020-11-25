@@ -1,13 +1,12 @@
 class ProjectsController < ApplicationController
+  before_action :signed_in
   def index
     @projects = Project.all
-    @user = current_user
 
   end
 
   def show
     @project = Project.find(params[:id])
-    @user = @project.user
   end
 
   def new
@@ -48,6 +47,10 @@ class ProjectsController < ApplicationController
 
 
   private
+
+  def signed_in
+    @user = current_user
+  end
 
   def project_params
     params.require(:project).permit(:title, :description, :genre, :status)
