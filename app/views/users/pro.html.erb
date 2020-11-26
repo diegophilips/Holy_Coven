@@ -2,4 +2,5 @@
 
 <p><%= @user.bio %></p>
 
+<%= link_to "Book #{@user.first_name}", new_user_booking_path(@user), class: "btn btn-outline-danger" %>
 <%= link_to "Back to Pros", pros_path, class: "btn btn-outline-danger" %>

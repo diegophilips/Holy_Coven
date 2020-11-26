@@ -1,2 +1,4 @@
-<% @bookings.each do |booking|%>
-<% booking. %>
+
+    <p> You have made a booking with <%= @booking.pro.first_name %> on <%= @booking.date %>!
+
+<%= link_to "Return to Dashbaord", dashboard_path  %>
