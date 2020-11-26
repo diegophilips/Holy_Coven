@@ -1,17 +1,25 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @user = User.find(params[:user_id])
-    @pro = User.find(params[:pro_id])
+    # @user = current_user
+    # @pro = User.find(params[:user_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.pro = User.find(params[:user_id])
+    if @booking.save
+      redirect_to user_booking_path(current_user, @booking), notice: 'Your booking has been created!'
+
+    else
+      render :new
+    end
   end
 
   def show
     @booking = Booking.find(params[:id])
-    @bookings = Booking.all
+
   end
 
   def edit
@@ -37,6 +45,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user, :pro, :date)
+    params.require(:booking).permit(:date)
   end
 end

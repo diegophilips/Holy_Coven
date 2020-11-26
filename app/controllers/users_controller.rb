@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.find(params[:id])
     @user_projects = @user.projects
-
+    # @bookings = Booking.find(params[:id])
     if @user.pro
       # show pro profile
       render :pro
