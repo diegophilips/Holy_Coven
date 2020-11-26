@@ -9,6 +9,10 @@ resources :users, only: [:show] do
   resources :reviews, only: [:new, :create]
 end
 
+resources :conversations do
+  resources :messages
+ end
+
 resources :reviews, only: [:edit, :update, :destroy]
 resources :services, only: [:index]
 resources :userservices, only: [:new, :create]
