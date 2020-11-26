@@ -1,0 +1,36 @@
+.message_container {
+  background: #0084ff;
+  color: #fff;
+  float: left;
+  border-bottom-right-radius: 10px;
+}
+
+.darker {
+  background: #eee;
+  color: #0084ff;
+}
+
+.list-mess {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+  display:inline-block;
+  clear: both;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  }
+}
+
+.me{
+  float: left;
+  background: #0084ff;
+  color: #fff;
+}
+
+.other {
+  background: #eee;
+  float: right;
+}
