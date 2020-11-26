@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 resources :projects
 
-resources :users, only: [:show] do
+resources :users, only: [:show, :update] do
   resources :bookings, only: [:new, :create, :show, :update, :edit, :destroy]
   resources :reviews, only: [:new, :create]
 end
