@@ -1,30 +1,51 @@
-<h1> My Profile </h1>
-
-<h6><%= @user.first_name %></h6>
-<h6><%= @user.last_name %></h6>
-<h6><%= @user.artist_name %></h6>
 
 
-<h3> projects</h3>
-<h6>In progress</h6>
-  <% @user_projects.each do |demo_project| %>
-    <% if demo_project.status == "Demo Recorded" %>
-      <%= demo_project.title %><br>
-    <% end %>
-  <% end %>
+    <div class="card">
+
+      <div class="hero-image">
+          <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="profile-card">
+
+          <div class="profile_image">
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+          </div>
+
+          <h6>About Me</h6>
+          <p><%= @user.bio %></p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="user-projects" >
+          <h1> My Profile </h1>
+          <h3> My Projects</h3>
+          <h6>In progress</h6>
+            <% @user_projects.each do |demo_project| %>
+              <% if demo_project.status == "Demo Recorded" %>
+                <%= demo_project.title %><br>
+              <% end %>
+            <% end %>
 
 
-<h6>My completed projects</h6>
-  <% @user_projects.each do |demo_project| %>
-    <% if demo_project.status == "Completed" %>
-      <%= demo_project.title %><br>
-    <% end %>
-  <% end %>
-
-<%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
-<% if @user.photo.attached? %>
-  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
+          <h6>My completed projects</h6>
+            <% @user_projects.each do |demo_project| %>
+              <% if demo_project.status == "Completed" %>
+                <%= demo_project.title %><br>
+              <% end %>
+            <% end %>
+          <h6><%= @user.first_name %></h6>
+          <h6><%= @user.last_name %></h6>
+          <h6><%= @user.artist_name %></h6>
+        </div>
+      </div>
+  </div>
+</div>
 
 
