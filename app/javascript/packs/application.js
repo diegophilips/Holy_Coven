@@ -28,8 +28,12 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { dropdownhome } from '../pages/dropdownhome';
+import { initLogoLoad } from '../pages/animation';
+import { nebula } from '../pages/nebula';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initLogoLoad();
 });
