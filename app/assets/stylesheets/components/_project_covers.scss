@@ -1,0 +1,29 @@
+.project-card {
+    display: flex;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+  .album-cover h6 {
+    padding: 5px 5px;
+    position: absolute;
+    bottom: 55px;
+    right: 50px;
+    background-color: #646464;
+    // transform: translate(-50%, -50%);
+    margin: auto;
+    // justify-content: center;
+  }
+
+
+  .album-cover img {
+    opacity: 50%;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    position: relative;
+  }
+
