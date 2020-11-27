@@ -1,16 +1,55 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<div class="card-user-profile">
 
-<p><%= @user.bio %></p>
+  <div class="hero-image">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+    <% else %>
+      <%= image_tag "user.png"%>
+    <% end %>
+  </div>
 
-<div class="profile_image">
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-  <% end %>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="profile-card">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+        <% else %>
+          <%= image_tag "user.png"%>
+        <% end %>
+        <p>
+          <button class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
+            Update Profile Picture
+          </button>
+        </p>
+        <div class="collapse" id="upload-image">
+          <div class="card card-body">
+            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+          </div>
+      </div>
 
-  <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+      <div class="profile-text">
+        <h6>About Me</h6>
+        <p><%= @user.bio %></p>
+        <%= link_to "View Spotify", "#", class: "spotify-link" %>
+      </div>
 
+      <div class="booking">
+        <% if @user != current_user %>
+          <%= link_to "Book #{@user.first_name}", new_user_booking_path(@user), class: "btn btn-outline-danger btn-sm" %>
+          <%= link_to "Message #{@user.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-outline-danger btn-sm" %>
+          <%= link_to "Back to Pros", pros_path, class: "btn btn-outline-danger btn-sm" %>
+        <% end %>
+      </div>
+
+    <div class="col-lg-8" >
+      <div class="profile_header">
+        <h1> <%=@user.artist_name%></h1>
+        <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Book #{@user.first_name}", new_user_booking_path(@user), class: "btn btn-outline-danger" %>
-<%= link_to "Message #{@user.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-outline-danger" %>
-<%= link_to "Back to Pros", pros_path, class: "btn btn-outline-danger" %>
+
+
+
