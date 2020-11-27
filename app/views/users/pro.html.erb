@@ -2,6 +2,15 @@
 
 <p><%= @user.bio %></p>
 
+<div class="profile_image">
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+  <% end %>
+
+  <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+
+</div>
+
 <%= link_to "Book #{@user.first_name}", new_user_booking_path(@user), class: "btn btn-outline-danger" %>
 <%= link_to "Message #{@user.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-outline-danger" %>
 <%= link_to "Back to Pros", pros_path, class: "btn btn-outline-danger" %>
