@@ -1,65 +1,87 @@
 
 
-    <div class="card">
+<div class="card-user-profile">
 
-      <div class="hero-image">
-        <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-        <% end %>
+  <div class="hero-image">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+    <% end %>
+  </div>
 
-      </div>
+  <div class="row">
+    <div class="profile col-lg-4">
+      <div class="profile-card">
 
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="profile-card">
-          <div class="profile_image">
-            <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-            <% end %>
+        <div class="profile_image">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+          <% end %>
 
+          <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="collapseExample">
+            Update Profile Image
+          </button>
+          <div class="collapse" id="upload-image">
             <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
-
-          </div>
-          <div class="profile-text">
-            <h6>About Me</h6>
-            <p><%= @user.bio %></p>
-          </div>
-          <div class="profile-numbers">
-            <p><%= @user_projects.count %> Projects </p>
-
-            <%= link_to "View Spotify", "#", class: "spotify-link" %>
           </div>
         </div>
-      </div>
 
-      <div class="col-lg-8">
-        <div class="right-profile" >
-          <div class="profile-header">
-            <h1> Artist name</h1>
-            <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
-          </div>
-          <div class="profile-body">
-          <h3> My Projects</h3>
-          <h6>In progress</h6>
-            <% @user_projects.each do |demo_project| %>
-              <% if demo_project.status == "Demo Recorded" %>
-                <%= demo_project.title %><br>
-              <% end %>
-            <% end %>
+        <div class="profile-text">
+          <h6>About Me</h6>
+          <p><%= @user.bio %></p>
+        </div>
 
-
-          <h6>My completed projects</h6>
-            <% @user_projects.each do |demo_project| %>
-              <% if demo_project.status == "Completed" %>
-                <%= demo_project.title %><br>
-              <% end %>
-            <% end %>
-          <h6><%= @user.first_name %></h6>
-          <h6><%= @user.last_name %></h6>
-          <h6><%= @user.artist_name %></h6>
-          </div>
+        <div class="profile-numbers">
+          <p><%= @user_projects.count %> Projects </p>
+          <%= link_to "View Spotify", "#", class: "spotify-link" %>
         </div>
       </div>
+    </div>
+
+    <div class="profile col-lg-8" >
+
+      <div class="profile-header">
+        <h1> Artist name</h1>
+        <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+
+
+
+      <% @user_projects.each do |demo_project|%>
+      <% if demo_project.status == "Completed" %>
+      <div class="project-card col-lg-2" >
+        <div class="album-cover">
+          <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+          <h6><%= demo_project.title %></h6>
+        </div>
+    </div>
+      <% end %>
+    <% end %>
+
+      <div class="view-more col-lg-2" >
+        <h1><%= link_to "View all completed projects",   "#"%></h1>
+
+      </div>
+          <% @user_projects.each do |demo_project| %>
+
+
+
+            <% if demo_project.status == "Demo Recorded" %>
+              <h6><%= demo_project.title %></h6>
+
+            <% end %>
+          <% end %>
+
+
+
+
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
