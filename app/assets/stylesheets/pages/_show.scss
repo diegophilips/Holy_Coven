@@ -1,0 +1,32 @@
+.container-project {
+  // display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card-project-show {
+  align-items: center;
+  text-align: center;
+  background-color: #262626;
+  color: #FBFBFB;
+  display: inline-block;
+  padding: 35px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+#btn-edit {
+  margin: 15px;
+}
+
+#btn-delete {
+  margin: 15px;
+}
+
+#team-class {
+  margin: 15px;
+}
+
+#team-class p {
+  margin: 20px;
+}
