@@ -5,26 +5,31 @@
   <div class="hero-image">
     <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+    <% else %>
+     <%= image_tag "user.png"%>
     <% end %>
   </div>
 
   <div class="row">
-    <div class="profile col-lg-4">
+    <div class="col-lg-4">
       <div class="profile-card">
-
-        <div class="profile_image">
+        <!-- <div class="profile_image"> -->
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+          <% else %>
+            <%= image_tag "user.png"%>
           <% end %>
-
-          <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="collapseExample">
-            Update Profile Image
-          </button>
-          <div class="collapse" id="upload-image">
-            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+            <p>
+              <button class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
+                Update Profile Picture
+              </button>
+            </p>
+            <div class="collapse" id="upload-image">
+              <div class="card card-body">
+                <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+              </div>
+           <!--  </div> -->
           </div>
-        </div>
-
         <div class="profile-text">
           <h6>About Me</h6>
           <p><%= @user.bio %></p>
@@ -37,10 +42,9 @@
       </div>
     </div>
 
-    <div class="profile col-lg-8" >
-
-      <div class="profile-header">
-        <h1> Artist name</h1>
+    <div class="col-lg-8" >
+      <div class="profile_header">
+        <h1> <%=@user.artist_name%></h1>
         <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
       </div>
     </div>
@@ -49,32 +53,57 @@
   <div class="row">
     <div class="col-lg-4"></div>
 
-
-
-      <% @user_projects.each do |demo_project|%>
-      <% if demo_project.status == "Completed" %>
-      <div class="project-card col-lg-2" >
-        <div class="album-cover">
-          <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-          <h6><%= demo_project.title %></h6>
-        </div>
+    <div class="col-lg-8">
+      <h3>Ongoing Projects</h3>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <% @user_projects.each do |demo_project|%>
+      <% if demo_project.status!= "Completed" %>
+        <div class="project-card col-lg-2" >
+          <div class="album-cover">
+            <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+            <h6><%= demo_project.title %></h6>
+          </div>
+        </div>
       <% end %>
     <% end %>
+  </div>
 
-      <div class="view-more col-lg-2" >
-        <h1><%= link_to "View all completed projects",   "#"%></h1>
+  <div class="row">
+    <div class="col-lg-4"></div>
 
-      </div>
-          <% @user_projects.each do |demo_project| %>
+    <div class="col-lg-8">
+      <h3>Completed Projects</h3>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-lg-4"></div>
 
-
-            <% if demo_project.status == "Demo Recorded" %>
+      <% @user_projects.each do |demo_project|%>
+        <% if demo_project.status == "Completed" %>
+          <div class="project-card col-lg-2" >
+            <div class="album-cover">
+              <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+        <% else %>
+            <%= image_tag "user.png"%>
               <h6><%= demo_project.title %></h6>
-
-            <% end %>
+            </div>
+          </div>
           <% end %>
+        <% end %>
+    <div class="view-more col-lg-2" >
+      <h1><%= link_to "View all completed projects", projects_path%></h1>
+    </div>
+  </div>
+
+
+
+
+
 
 
 
