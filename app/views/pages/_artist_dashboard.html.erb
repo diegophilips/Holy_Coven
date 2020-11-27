@@ -1,21 +1,33 @@
-<h1>Hello <%= @user.artist_name %>!</h1>
 
-<% if @user_projects.empty? == true %>
-  <p> You do not have any projects yet!</p>
-<% else %>
-  <% @user_projects.each do |project|%>
-    <p><%= link_to project.title, project_path(project)%> - <%= project.status %></p>
-  <% end %>
+<h1 class="hello">Hello <%= @user.artist_name %>!</h1>
 
-  <% if @user_bookings.empty? == true %>
-    <p>You do not have any bookings yet!</p>
-    <p><%= link_to "Book a new service", services_path, class: "btn btn-outline-danger" %></p>
-  <% else %>
-    <% @user_bookings.each do |booking|%>
+<div class="container">
+  <div class="container-item project-div">
+    <div class="card-project">
+      <% if @user_projects.empty? == true %>
+        <p> You do not have any projects yet!</p>
+      <% else %>
+        <% @user_projects.each do |project|%>
+          <p><%= link_to project.title, project_path(project)%> - <%= project.status %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<div class="container-item book-div">
+  <div class="card-book">
+    <% if @user_bookings.empty? == true %>
+      <p>You do not have any bookings yet!</p>
+      <p><%= link_to "Book a new service", services_path, class: "btn btn-outline-danger" %></p>
+    <% else %>
+      <% @user_bookings.each do |booking|%>
       <p> <%= booking.date %> </p>
-      <!-- Add link to professionals profile -->
+       <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
 
-<%= link_to "Start a new project", new_project_path, class: "btn btn-outline-dark" %>
+<div class="container-item start-new-div">
+  <%= link_to "Create a new project", new_project_path, class: "btn btn-outline-danger btn-lg" %>
+</div>
+
+</div>
