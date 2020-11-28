@@ -1,116 +1,42 @@
-
-
-<div class="card-user-profile">
+<div class="profile-card">
 
   <div class="hero-image">
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-    <% else %>
-     <%= image_tag "user.png"%>
-    <% end %>
+    img
   </div>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="profile-card">
-        <!-- <div class="profile_image"> -->
-          <% if @user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-          <% else %>
-            <%= image_tag "user.png"%>
-          <% end %>
-            <p>
-              <button class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
-                Update Profile Picture
-              </button>
-            </p>
-            <div class="collapse" id="upload-image">
-              <div class="card card-body">
-                <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
-              </div>
-           <!--  </div> -->
-          </div>
-        <div class="profile-text">
-          <h6>About Me</h6>
-          <p><%= @user.bio %></p>
-        </div>
+  <div class="content">
+    <div class="profile-left">
+      <div class="profile-card-image">
+        img
+      </div>
+      <div>this is to update profile image</div>
+      <div>this is the about section</div>
+      <div>this is for social media</div>
+    </div>
 
-        <div class="profile-numbers">
-          <p><%= @user_projects.count %> Projects </p>
-          <%= link_to "View Spotify", "#", class: "spotify-link" %>
+    <div class="profile-right">
+      <div class="profile-header">
+        <h1><%= @user.artist_name.upcase %></h1>
+        <h6><%= @user.first_name %> <%= @user.last_name %> </h6>
+      </div>
+      <div class="profile-spotify">
+        <iframe src="https://open.spotify.com/embed/artist/3ccrJOoILrsst0M1V0PlP3" width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+      <div class="profile-subheader">
+        this is the ongoing pros
+        <div class="albums-row">
+          this is for ongoing albums
+        </div>
+      </div>
+      <div class="profile-subheader">
+        this is the completed pros
+         <div class="albums-row">
+          this is for ongoing albums
         </div>
       </div>
     </div>
 
-    <div class="col-lg-8" >
-      <div class="profile_header">
-        <h1> <%=@user.artist_name%></h1>
-        <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
-      </div>
-    </div>
+
   </div>
 
-  <div class="row">
-    <div class="col-lg-4"></div>
-
-    <div class="col-lg-8">
-      <h3>Ongoing Projects</h3>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4"></div>
-    <% @user_projects.each do |demo_project|%>
-      <% if demo_project.status!= "Completed" %>
-        <div class="project-card col-lg-2" >
-          <div class="album-cover">
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-            <h6><%= demo_project.title %></h6>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4"></div>
-
-    <div class="col-lg-8">
-      <h3>Completed Projects</h3>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4"></div>
-
-      <% @user_projects.each do |demo_project|%>
-        <% if demo_project.status == "Completed" %>
-          <div class="project-card col-lg-2" >
-            <div class="album-cover">
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
-        <% else %>
-            <%= image_tag "user.png"%>
-              <h6><%= demo_project.title %></h6>
-            </div>
-          </div>
-          <% end %>
-        <% end %>
-    <div class="view-more col-lg-2" >
-      <h1><%= link_to "View all completed projects", projects_path%></h1>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-          </div>
-      </div>
-    </div>
-  </div>
 </div>
-

@@ -43,11 +43,62 @@
 
     <div class="col-lg-8" >
       <div class="profile_header">
-        <h1> <%=@user.artist_name%></h1>
-        <p><%= @user.first_name.upcase%> <%=@user.last_name.upcase %> </p>
+        <h1> <%= @user.first_name.upcase%> <%=@user.last_name.upcase %></h1>
       </div>
     </div>
   </div>
+
+   <div class="row">
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-8">
+      <h3>Ongoing Projects</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <% @user_projects.each do |demo_project|%>
+      <% if demo_project.status!= "Completed" %>
+        <div class="project-card col-lg-2" >
+          <div class="album-cover">
+            <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+            <h6><%= demo_project.title %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-8">
+      <h3>Completed Projects</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+
+      <% @user_projects.each do |demo_project|%>
+        <% if demo_project.status == "Completed" %>
+          <div class="project-card col-lg-2" >
+            <div class="album-cover">
+              <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
+        <% else %>
+            <%= image_tag "user.png"%>
+              <h6><%= demo_project.title %></h6>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+    <div class="view-more col-lg-2" >
+      <h1><%= link_to "View all completed projects", projects_path%></h1>
+    </div>
+  </div>
+
+
 </div>
 
 
