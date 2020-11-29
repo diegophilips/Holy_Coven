@@ -1,0 +1,18 @@
+.grid-container-convo {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.convo-info {
+text-align: center;
+margin: 10px auto;
+}
+
+.convo-box {
+  background: #FBFBFB;
+  padding: 10px;
+  border-radius: 4px;
+}
