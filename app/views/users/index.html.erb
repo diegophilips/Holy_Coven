@@ -1,10 +1,21 @@
-<h1>Index of Professionals</h1>
+<h1 style="text-align: center;">Index of Professionals</h1>
 
+<div class="row">
+  <% @pros.each do |pro|%> <hr>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card-index-pro m-3">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <h3><%= pro.first_name %> <%= pro.last_name %></h3>
+          <h6><%= pro.bio %></h6> <hr>
+          <div class="bt-center">
+            <%= link_to "More info", user_path(pro),  class: "brk-btn"%>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
 
-<% @pros.each do |pro|%> <hr>
-<h6><%= pro.first_name %></h6>
-<h6><%= pro.last_name %></h6>
-<h6><%= pro.bio %></h6>
-<%= link_to "More info", user_path(pro),  class: "btn btn-dark"%>
-
-<% end %>
