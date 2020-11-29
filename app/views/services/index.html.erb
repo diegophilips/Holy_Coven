@@ -1,15 +1,16 @@
 <div class="row">
-<% @services.each do |service|  %> <hr>
-  <div class="col-12 col-sm-6 col-md-4">
-    <div class="card-index m-3">
-      <div class="resize">
-        <%= image_tag category_picture(service)%>
+  <% @services.each do |service|  %> <hr>
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card-index m-3">
+        <div class="resize">
+          <%= image_tag category_picture(service)%>
+        </div>
+        <%= service.type_of_service %><br>
+        <%= service.description %>
+        <p><%= link_to "View the team", pros_path(service_name: service.type_of_service) %></p>
       </div>
-      <%= service.type_of_service %><br>
-      <%= service.description %>
-      <p><%= link_to "View the team", pros_path(service_name: service.type_of_service) %></p>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
+
 

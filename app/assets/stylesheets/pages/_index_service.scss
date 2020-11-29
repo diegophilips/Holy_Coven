@@ -26,7 +26,25 @@
   padding: 16px;
   text-align: center;
   background-color: #262626;
-  border-radius: 5px;
+  border-radius: 10px;
+  height: 450px;
+}
+
+.card-index-pro {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #262626;
+  border-radius: 10px;
+  height: 350px;
+  overflow: auto;
+}
+
+.flex-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
