@@ -32,26 +32,56 @@
   }
 
 .profile-left {
-  font-family: Poppins;
   display: grid;
-  border: 1px solid black;
   background: #262626;
   height: 600px;
-  grid-template-rows: 2fr 1fr 1fr 0.5fr;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  grid-template-rows: 2fr 0.2fr 1fr 0.5fr;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 
   img{
     object-fit: cover;
     width: 100%;
-    // position: relative;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
   }
 }
+
+
+.update-image{
+  p {
+    color: #FBFBFB;
+    margin: 0;
+    top: 0;
+    font-size: 12px;
+  }
+}
+
+
+
+    label {
+      font-size: 12px;
+      color: #FBFBFB;
+    }
+
+    #user_photo {
+      background: transparent;
+      // height: 10px;
+      margin: 0 auto;
+      font-size: small;
+      color: #FBFBFB;
+      width: 200px;
+    }
+
 
   .update-image-btn {
     background: rgba(0, 0, 0, 0.2);
     border-style: none;
+    padding: 0;
     // position: absolute;
     width: 100%
+
+
   }
 
 
@@ -75,14 +105,19 @@
   font-family: Poppins;
   color: #FBFBFB;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   position:relative;
-  align-items: end;
+
 
 }
 
 .profile-spotify-follow-btn {
   position: absolute;
+  right: 0;
+  width: 100px;
+  // height: 120px;
+  bottom: 0;
+  padding-bottom: 5px;
 
 }
 
