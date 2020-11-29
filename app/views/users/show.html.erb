@@ -61,87 +61,137 @@
         <div class="profile-subheader">
         <h6>Latest Release</h6>
         </div>
+
         <div class="albums-release">
-           <div class="album-cover">
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-          </div>
-          <div class="release-info">
-          <%@user.projects.each do |release| %>
-
-              <h6><%= release.title %></h6>
-
+          <% if @latest_release.blank? %>
+            <div class="album-cover">
+              <%= image_tag "HC_LOGO_RGB-04.png" %>
+            </div>
+            <div class="release-info">
+              <p><%= @user.artist_name %> has not released any music yet, follow them to stay tuned!</p>
+            </div>
+          <% else %>
+            <div class="album-cover">
+              <!-- add image to projects -->
+            </div>
+            <div class="release-info">
+              <h6><%=@latest_release.title %></h6>
+              <p><%=@latest_release.description %></p>
+              <%= link_to "View Project", project_path(@latest_release) %>
+            </div>
           <% end %>
         </div>
-        </div>
+
       <div class="profile-subheader">
         <h6><%= @user.artist_name %>'s Current Projects</h6>
       </div>
+
+      <% if @ongoing_projects.empty? %>
+        <div class="albums-release">
+          <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+          </div>
+          <div class="release-info">
+            <% if current_user == @user %>
+              <p>You do not have any projects yet!</p>
+              <%= link_to "Start a new project!", new_project_path %>
+            <% else %>
+              <p><%= @user.artist_name %> does not have any projects yet!</p>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
         <div class="albums-row">
-
-
-          <div class="album-cover">
-            <p><%=@user.projects[-1].title %></p>
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
+          <% if @ongoing_projects[-1].blank? %>
+          <div class="blank-album-cover">
+            <p>Shh..</p>
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
           </div>
-          <div class="album-cover">
-            <p><%=@user.projects[-2].title %></p>
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-          </div>
-          <div class="album-cover">
-            <% if @user.projects[-3].blank? %>
-              <p>Shh..</p>
+          <% else %>
+            <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><%=link_to @ongoing_projects[-1].title, projects_path(@ongoing_projects[-1].id)%></p>
+<!-- CHECK THIS PATH-->
+      </div>
+          <% end %>
+        <div class="album-cover">
+          <% if @ongoing_projects[-2].blank? %>
+            <div class="blank-album-cover">
+              <p>No Project</p>
               <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <% else %>
-              <p><%=@user.projects[-2].title %></p>
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-            <% end %>
-          </div>
-          <div class="album-cover">
-            <% if @user.projects[-4].blank? %>
-              <p>Shh..</p>
+            </div>
+          <% else %>
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><%=@ongoing_projects[-2].title %></p>
+          <% end %>
+        </div>
+        <div class="album-cover">
+          <% if @ongoing_projects[-3].blank? %>
+            <div class="blank-album-cover">
+              <p>No Project</p>
               <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <% else %>
-              <p><%=@user.projects[-2].title %></p>
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-            <% end %>
-          </div>
+            </div>
+          <% else %>
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><%=@ongoing_projects[-3].title %></p>
+          <% end %>
+        </div>
+        <div class="album-cover">
+          <% if @ongoing_projects[-4].blank? %>
+            <div class="blank-album-cover">
+              <p>No Project</p>
+              <%= image_tag "HC_LOGO_RGB-04.png" %>
+            </div>
+          <% else %>
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><%=@ongoing_projects[-4].title %></p>
+          <% end %>
+        </div>
+      <% end %>
 </div>
            <div class="profile-link btn btn-outline-light">
             <%= link_to "View all Projects", projects_path %>
           </div>
 
+      <% if @completed_projects.present?%>
+          <div class="profile-subheader ">
+            <h6><%= @user.artist_name %>'s Released Projects</h6>
+          </div>
+          <div class="albums-row">
+            <div class="album-cover">
+              <% if @user.projects[-1].blank? %>
+                <p>Shh..</p>
+                <%= image_tag "HC_LOGO_RGB-04.png" %>
+              <% else %>
+                <p><%=@user.projects[-1].title %></p>
+              <% end %>
+            </div>
+            <div class="album-cover">
+              <% if @user.projects[-2].blank? %>
+                <p>Shh..</p>
+                <%= image_tag "HC_LOGO_RGB-04.png" %>
+              <% else %>
+                <p><%=@user.projects[-2].title %></p>
+                <% end %>          </div>
+            <div class="album-cover">
+              <% if @user.projects[-3].blank? %>
+                <p>Shh..</p>
+                <%= image_tag "HC_LOGO_RGB-04.png" %>
+              <% else %>
+                <p><%=@user.projects[-3].title %></p>
+                <% end %>
+            </div>
+            <div class="album-cover">
+              <% if @user.projects[-4].blank? %>
+                <p>Shh..</p>
+                <%= image_tag "HC_LOGO_RGB-04.png" %>
+              <% else %>
+                <p><%=@user.projects[-4].title %></p>
+                <% end %>
+            </div>
+          </div>
+          <% end %>
 
-      <div class="profile-subheader ">
-        <h6><%= @user.artist_name %>'s Released Projects</h6>
-        <div class="albums-row">
-
-
-          <div class="album-cover">
-            <p><%=@user.projects[-1].title %></p>
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-          </div>
-          <div class="album-cover">
-            <p><%=@user.projects[-2].title %></p>
-            <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-          </div>
-          <div class="album-cover">
-            <% if @user.projects[-3].blank? %>
-              <p>Shh..</p>
-              <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <% else %>
-              <p><%=@user.projects[-2].title %></p>
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-            <% end %>
-          </div>
-          <div class="album-cover">
-            <% if @user.projects[-4].blank? %>
-              <p>Shh..</p>
-              <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <% else %>
-              <p><%=@user.projects[-2].title %></p>
-              <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
-            <% end %>
-          </div>
       </div>
     </div>
   </div>
