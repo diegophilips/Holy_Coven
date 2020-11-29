@@ -29,8 +29,24 @@
           </div>
         </div>
       </div>
-      <div>this is the about section</div>
-      <div>this is for social media</div>
+
+      <div class="profile-spotify">
+        <iframe src="https://open.spotify.com/embed/artist/246dkjvS1zLTtiykXe5h60" width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+      <div class="profile-left-header">
+        <h6>About <%= @user.artist_name %> </h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, vitae voluptates, repellendus, voluptatum saepe explicabo deleniti cum, beatae accusantium soluta quos laboriosam sunt? Minima repellat quos, facere, enim sapiente ex qui, possimus sunt rerum veritatis suscipit iusto perferendis nemo minus quas quis! Nemo amet blanditiis, culpa rerum dolorem soluta alias!</p>
+      </div>
+      <div class="profile-left-header">
+        <h6>Follow <%= @user.artist_name %> </h6>
+        <a href="https://www.instagram.com/postmalone/">
+          <i class="fab fa-instagram-square"></i>
+        </a>
+        <a href="https://www.instagram.com/postmalone/">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+
+      </div>
     </div>
 
     <div class="profile-right">
@@ -42,9 +58,6 @@
           </div>
       </div>
 
-      <div class="profile-spotify">
-        <iframe src="https://open.spotify.com/embed/artist/246dkjvS1zLTtiykXe5h60" width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
 
       <div class="profile-subheader">
         this is the ongoing pros
