@@ -1,18 +1,43 @@
 .grid-container-convo {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns:auto;
   grid-gap: 10px;
   padding: 10px;
   justify-content: space-around;
+  margin: auto auto;
 }
 
 .convo-info {
 text-align: center;
-margin: 10px auto;
+padding:16px;
 }
 
 .convo-box {
   background: #FBFBFB;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 5px;
+  display: flex;
+  width: 300px;
+  height: 80px;
+  align-items: center;
+  border-bottom: solid 1px black;
+}
+
+.convo-avatar {
+  align-item: center;
+  right-border: solid 1px black;
+}
+
+.convo-text {
+    width: 100%;
+    margin-left: 16px;
+  p {
+    color: black;
+    margin-bottom: 0;
+  }
+}
+
+.convo-btn {
+text-align: center;
+padding: 24px;
 }
