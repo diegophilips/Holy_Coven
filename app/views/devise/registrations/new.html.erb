@@ -16,6 +16,14 @@
           <%= f.input :artist_name,
                       required: true,
                       input_html: { autocomplete: "artist name"}%>
+          <%= f.input :spotify_artist_link,
+                      required: false,
+                      hint: "This can be found on your Spotify account",
+                      input_html: { autocomplete: "spotify artist link"}%>
+          <%= f.input :bio,
+                      required: true,
+                      hint: "Tell us about your artistry! This can be changed",
+                      input_html: { autocomplete: "bio"}%>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
