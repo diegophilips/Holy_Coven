@@ -4,8 +4,8 @@
   <% @pros.each do |pro|%> <hr>
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card-index-pro mt-5 m-3">
-          <% if project.photo.attached? %>
-            <%= cl_image_tag project.photo.key, class: "avatar-big dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if pro.photo.attached? %>
+            <%= cl_image_tag pro.photo.key, class: "avatar-big dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "user.png", class: "avatar-big dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
