@@ -1,16 +1,25 @@
 <div class="row">
   <% @services.each do |service|  %> <hr>
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="card-index m-3">
-        <div class="resize">
-          <%= image_tag category_picture(service)%>
-        </div>
-        <%= service.type_of_service %><br>
-        <%= service.description %>
-        <p><%= link_to "View the team", pros_path(service_name: service.type_of_service) %></p>
+  <div class="col-12 col-sm-6 col-md-4">
+    <div class="card">
+     <div class="card__image-container">
+       <div class="card__image">
+        <%= image_tag category_picture(service)%>
       </div>
     </div>
+      <svg class="card__svg" viewBox="0 0 800 500">
+
+        <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+        <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="white" stroke-width="3" fill="transparent"/>
+      </svg>
+    <div class="card__content">
+       <h2 class="card__title"><%= service.type_of_service %></h2>
+        <%= service.description %>
+        <div class="stick-to">
+          <p><%= link_to "View the team", pros_path(service_name: service.type_of_service), class: "brk-btn" %></p>
+        </div>
+    </div>
+    </div>
+  </div>
   <% end %>
 </div>
-
-
