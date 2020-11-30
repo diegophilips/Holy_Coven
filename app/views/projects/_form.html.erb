@@ -11,6 +11,8 @@
         <%= f.input :description, label: "Describe your project"%>
         <%= f.input :genre, collection: Project::GENRES %>
         <%= f.input :status, collection: Project::STATUTES %>
+        <%= f.input :photo, label: "Insert Your Cover Art (can be provisory)", as: :file %>
+
       </div>
 
       <div class="row justify-content-center">
