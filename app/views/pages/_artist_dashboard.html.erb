@@ -9,9 +9,9 @@
       <% else %>
         <% @user_projects.each do |project|%>
         <% if project.photo.attached? %>
-          <%= cl_image_tag project.photo.key, class: "card-product-image"%>
+          <%= cl_image_tag project.photo.key, class: "album-cover", overflow: :hidden %>
         <% else %>
-          <%= image_tag "Green_music.jpg", class: "card-product-image" %>
+          <%= image_tag "Green_music.jpg", class: "album-cover" %>
           <% end %>
           <div class="card-project-infos">
             <h3> <%= link_to project.title, project_path(project)%> </h3>
