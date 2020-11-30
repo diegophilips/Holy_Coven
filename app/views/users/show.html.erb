@@ -23,7 +23,7 @@
             </button>
         </div>
           <div class="collapse" id="upload-image">
-            <div class="update-image update-image-body p-2">
+            <div class="update-image update-image-body">
               <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
             </div>
           </div>
@@ -35,17 +35,39 @@
 
       <div class="profile-left-header">
         <h6>About <%= @user.artist_name %> </h6>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, vitae voluptates, repellendus, voluptatum saepe explicabo deleniti cum, beatae accusantium soluta quos laboriosam sunt? Minima repellat quos, facere, enim sapiente ex qui, possimus sunt rerum veritatis suscipit iusto perferendis nemo minus quas quis! Nemo amet blanditiis, culpa rerum dolorem soluta alias!</p>
+        <p><%= @user.bio %> </p>
       </div>
       <div class="profile-left-header">
         <h6>Follow <%= @user.artist_name %> </h6>
-        <a href="https://www.instagram.com/postmalone/">
-          <i class="fab fa-instagram-square"></i>
-        </a>
-        <a href="https://www.instagram.com/postmalone/">
-          <i class="fab fa-twitter-square"></i>
-        </a>
-
+        <% if @user = current_user %>
+          <% if @user.instagram_link.present?  %>
+            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
+              <i class="fab fa-instagram-square"></i>
+            </a>
+          <% end %>
+          <% if @user.facebook_link.present?  %>
+            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
+              <i class="fab fa-twitter-square"></i>
+            </a>
+          <%end %>
+          <% if @user.facebook_link.nil? && @user.instagram_link.nil?  %>
+            <p>Update your profile to add your social media!</p>
+          <% end %>
+        <% else %>
+          <% if @user.instagram_link.present? %>
+            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
+              <i class="fab fa-instagram-square"></i>
+            </a>
+          <% end %>
+          <% if @user.facebook_link.present?  %>
+            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
+              <i class="fab fa-twitter-square"></i>
+            </a>
+          <%end %>
+          <% if @user.facebook_link.nil?  && @user.instagram_link.nil?  %>
+            <p><%= @user.artist_name%> has not added their social media</p>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -85,7 +107,7 @@
             <!-- add image to projects -->
           </div>
           <div class="release-info">
-            <h6><%=@latest_release.title %></h6>
+            <h6><strong><%=@latest_release.title %></strong></h6>
             <p><%=@latest_release.description %></p>
             <%= link_to "View Project", project_path(@latest_release) %>
           </div>
@@ -112,8 +134,8 @@
             <%= image_tag "HC_LOGO_RGB-04.png" %>
           </div>
           <div class="release-info">
-            <p><strong><%=@ongoing_projects[-1].title%></strong>:<br>
-              <%= @ongoing_projects[-1].status %></p>
+            <h6><strong><%=@ongoing_projects[-1].title%></strong>:</h6>
+            <p><em><%= @ongoing_projects[-1].status %></em></p>
           </div>
         </div>
       <% elsif @ongoing_projects.count == 2%>
@@ -122,15 +144,15 @@
             <%= image_tag "HC_LOGO_RGB-04.png" %>
           </div>
           <div class="release-info">
-            <h6><%=@ongoing_projects[-1].title%></h6>:
-              <%= @ongoing_projects[-1].status %></p>
+            <h6><strong><%=@ongoing_projects[-1].title%>:</strong></h6>
+              <p><em><%= @ongoing_projects[-1].status %></em></p>
           </div>
           <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
           </div>
           <div class="release-info">
-            <h6><%=@ongoing_projects[-2].title%></h6>:
-              <%= @ongoing_projects[-2].status %></p>
+            <h6><strong><%=@ongoing_projects[-2].title%>:</strong></h6>
+              <p><em><%= @ongoing_projects[-2].status %></em></p>
           </div>
         </div>
       <% elsif @ongoing_projects.count == 3%>
@@ -174,13 +196,37 @@
               <%= @ongoing_projects[-4].status %></p>
           </div>
         </div>
+      <% elsif @ongoing_projects.count <= 5%>
+        <div class="albums-four">
+          <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><strong><%=@ongoing_projects[-1].title%></strong>:<br>
+              <%= @ongoing_projects[-1].status %></p>
+          </div>
+          <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><strong><%=@ongoing_projects[-2].title%></strong>:<br>
+              <%= @ongoing_projects[-2].status %></p>
+          </div>
+          <div class="album-cover">
+          <%= image_tag "HC_LOGO_RGB-04.png" %>
+          <p><strong><%=@ongoing_projects[-3].title%></strong>:<br>
+            <%= @ongoing_projects[-3].status %></p>
+          </div>
+          <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <p><strong><%=@ongoing_projects[-4].title%></strong>:<br>
+              <%= @ongoing_projects[-4].status %></p>
+          </div>
+        </div>
     <% end %>
 
-    <div class="profile-subheader">
-      <h6>Released Projects</h6>
-    </div>
+
 
     <% if @completed_projects.empty? && @ongoing_projects.present? %>
+      <div class="profile-subheader">
+        <h6>Released Projects</h6>
+      </div>
       <div class="empty-profile-right-card">
         <% if @user == current_user %>
           <p>You have not released any projects yet!<br>
@@ -191,6 +237,9 @@
       </div>
 
       <% elsif @completed_projects.count == 1%>
+        <div class="profile-subheader">
+          <h6>Released Projects</h6>
+        </div>
         <div class="albums-one">
           <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
@@ -201,6 +250,9 @@
           </div>
         </div>
       <% elsif @completed_projects.count == 2%>
+        <div class="profile-subheader">
+          <h6>Released Projects</h6>
+        </div>
         <div class="albums-two">
           <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
@@ -218,6 +270,9 @@
           </div>
         </div>
       <% elsif @completed_projects.count == 3%>
+        <div class="profile-subheader">
+          <h6>Released Projects</h6>
+        </div>
         <div class="albums-three">
           <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
@@ -235,7 +290,10 @@
             <%= @completed_projects[-3].status %></p>
           </div>
         </div>
-      <% elsif @completed_projects.count == 4%>
+      <% elsif @completed_projects.count >= 4%>
+      <div class="profile-subheader">
+        <h6>Released Projects</h6>
+      </div>
         <div class="albums-four">
           <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
@@ -258,6 +316,9 @@
               <%= @completed_projects[-4].status %></p>
           </div>
         </div>
+    <% else %>
+
+
     <% end %>
       </div>
     </div>

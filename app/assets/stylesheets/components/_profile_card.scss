@@ -31,10 +31,10 @@
 
 .profile-left {
   display: grid;
-  grid-template-rows: auto;
-  background: #262626;
+  // grid-template-rows: auto;
+  background: #0A090A;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  border-radius: 5px;
   padding-bottom: 32px;
 
   .profile-spotify {
@@ -63,8 +63,8 @@
   img {
     object-fit: cover;
     width: 100%;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
   .update-image-btn {
   background: rgba(0, 0, 0, 0.2);

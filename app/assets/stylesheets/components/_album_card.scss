@@ -1,6 +1,6 @@
 .empty-profile-right-card {
   display:grid;
-  grid-template-rows: 150px 1fr;
+  grid-template-rows: 88px 1fr;
   grid-template-columns: 1fr;
   background: #262626;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -17,10 +17,22 @@
   grid-template-rows: 150px 1fr;
   grid-template-columns: (150px 1fr) auto;
   position:relative;
-  background: #262626;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  color: #FBFBFB;
+  border-bottom: 1px solid #626262;
+  padding-bottom: 24px;
+  margin-bottom: 16px;
+  .release-info {
+    padding: 0px 24px 0px 8px;
+    margin: auto 0;
+    color: #FBFBFB;
+    h6 {
+      font-size: 16px;
+      margin: 0;
+    }
+    p{
+      font-size: 12px;
+      margin:0;
+    }
+  }
 }
 
 .albums-two {
@@ -28,23 +40,21 @@
   grid-template-rows: 150px 1fr;
   grid-template-columns: repeat(2,(150px 1fr));
   position:relative;
-  // background: #262626;
-  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid #626262;
-  // border-radius: 2px;
   padding-bottom: 24px;
   margin-bottom: 16px;
-  color: #FBFBFB;
   .release-info {
     padding: 0px 24px 0px 8px;
     margin: auto 0;
-    // h6 {
-    //   font-size: 16px;
-    // }
-    // p{
-    //   font-size: 12px;
-
-    // }
+    color: #FBFBFB;
+    h6 {
+      font-size: 16px;
+      margin: 0;
+    }
+    p{
+      font-size: 12px;
+      margin:0;
+    }
   }
 }
 
