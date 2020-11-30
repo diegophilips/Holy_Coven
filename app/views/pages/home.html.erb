@@ -11,13 +11,13 @@
   <path d="M404.547 4.15998L384.067 60H370.467L349.987 4.15998H361.987L377.347 48.56L392.627 4.15998H404.547Z" stroke="#FFFCFC" stroke-width="3" mask="url(#path-1-outside-1)"/>
   <path d="M422.462 13.2V27.2H441.262V36.08H422.462V50.88H443.662V60H411.262V4.07998H443.662V13.2H422.462Z" stroke="#FFFCFC" stroke-width="3" mask="url(#path-1-outside-1)"/>
   <path d="M501.6 60H490.4L465.04 21.68V60H453.84V4.07998H465.04L490.4 42.48V4.07998H501.6V60Z" stroke="#FFFCFC" stroke-width="3" mask="url(#path-1-outside-1)"/>
-  </svg> <hr>
+  </svg> <br> <br>
 
 
   <% if user_signed_in?%>
     <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-dark" %>
   <% else %>
-    <%= link_to "Explore the Coven", new_user_registration_path, class: "btn btn-outline-success" %>
+    <%= link_to "Explore the Coven", new_user_registration_path, class: "brk-btn" %>
     <%= link_to "Sign in", new_user_session_path, class: "btn btn-dark" %>
   <% end %>
 

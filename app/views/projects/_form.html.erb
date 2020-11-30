@@ -1,28 +1,26 @@
-<div class="container">
-  <div class="row justify-content-center">
 
-
-      <%= simple_form_for model, method: verb, url: url do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-      <div class="form-inputs">
-        <%= f.input :title, label: "Name your project" %>
-        <%= f.input :description, label: "Describe your project"%>
-        <%= f.input :genre, collection: Project::GENRES %>
-        <%= f.input :status, collection: Project::STATUTES %>
-        <%= f.input :photo, label: "Insert Your Cover Art (can be provisory)", as: :file %>
-
-      </div>
-
-      <div class="row justify-content-center">
-
-        <div class="form-actions">
-          <%= f.submit class: "btn btn-outline-dark  w-70"%>
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100">
+  <div class="wrapper wrapper--w780">
+    <div class="card-3 row">
+      <div class="first-header" style="background-image: url(<%= asset_path "bn.jpg" %>)"></div>
+        <div class="card-body col-md-6">
+          <h2 class="title">Your new project</h2>
+          <%= simple_form_for model, method: verb, url: url do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+            <%= f.input :title, label: "Name your project" %> <hr>
+              <%= f.input :description, label: "Describe your project"%> <hr>
+              <%= f.input :genre, collection: Project::GENRES %> <hr>
+              <%= f.input :status, collection: Project::STATUTES %> <hr>
+              <%= f.input :photo, label: "Insert Your Cover Art (can be provisory)", as: :file %>
+            <div class="row justify-content-center">
+              <div class="form-actions"> <br>
+                <%= f.submit class: "brk-btn"%>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <% end %>
-
       </div>
-
+    </div>
   </div>
 </div>

@@ -1,0 +1,25 @@
+.projects-card {
+  display: grid;
+  grid-template-areas: "image" "text" "buttons";
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+  text-align: center;
+  width: 300px;
+  height: 400px;
+}
+
+.projects-image {
+  grid-area: image;
+}
+
+.project-info {
+  grid-area: text;
+}
+
+.project-buttons {
+  grid-area: buttons;
+}
+
+.pro-header {
+ text-align: center;
+}

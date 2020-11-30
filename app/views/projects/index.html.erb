@@ -1,4 +1,26 @@
-<% @projects.each do |project| %>
-  <h4> <%=link_to project.title, project_path(project) %> </h4>
-  <p> <%= project.status %> </p>
-<% end  %>
+  <div class="pro-header">
+    <h1>Your Projects</h1>
+  </div>
+<div class="container d-flex">
+  <% @projects.each do |project|%>
+  <div class="m-5 projects-card">
+    <div class="m-2 card__image">
+        <% if project.photo.attached? %>
+          <%= cl_image_tag project.photo.key, class: "album-cover", overflow: :hidden %>
+        <% else %>
+          <%= image_tag "Green_music.jpg", class: "album-cover" %>
+        <% end %>
+    </div>
+    <div class="project-info">
+        <h2><%= project.title %></h2>
+          <p> <%= project.description %> </p>
+          <p> Started on : <%= project.start_date %> </p>
+          <p> <%= project.status %> </p>
+    </div>
+      <div class="project-buttons">
+        <%= link_to "See more", project_path(project), class: "brk-btn" %>
+      </div>
+  </div>
+  <% end %>
+</div>
+

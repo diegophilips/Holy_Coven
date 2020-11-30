@@ -1,6 +1,8 @@
 <%= simple_form_for(@user) do |f| %>
   <!-- [...] -->
   <%= f.input :photo, label: "put image here", as: :file %>
+  <%= f.input :facebook_link %>
+  <%= f.input :instagram_link %>
   <!-- [...] -->
   <%= f.button :submit%>
 <% end %>
