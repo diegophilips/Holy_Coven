@@ -1,24 +1,18 @@
-<div class="container-project">
-  <div class="card-project-show">
-    <%= @project.title %> <br>
-    <%= @project.description %> <br>
-    <%= @project.status %>
-    <p> You started this project on <%= @project.start_date %></p>
-    <div id="team-class">
-      <%= link_to "Book in your next step!", services_path, class: "btn-outline-success" %> <br>
-      <!-- <div id="show-team"> -->
-        <h6>Your team</h6>
-      <!-- </div> -->
-    </div>
 
-    <div id="btn-edit">
-      <%= link_to "Edit your project", edit_project_path(@project), class: "btn btn-outline-success"%> <br>
-    </div>
-    <div id="btn-delete">
-      <%= link_to "Delete your project", project_path(@project), class: "btn btn-outline-success", method: :delete, data: { confirm: "Are you sure you wish to delete your project?" }  %><br>
-    </div>
-    <div id="btn-return">
-      <%= link_to "Return to Projects", projects_path, class: "btn btn-dark" %><br>
-    </div>
-  </div>
-</div>
+<div class="card-project-show mt-5 m-3 ">
+            <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-big " %>
+          <% else %>
+            <%= image_tag "user.png", class: "avatar-big " %>
+          <% end %>
+    <h2><%= @project.title %></h2> <br> <br> <br>
+    <h6><%= @project.description %></h6>
+    <h6><%= @project.status %></h6>
+    <h6> You started this project on <%= @project.start_date %></h6>
+        <%= link_to "Book in your next step!", services_path, class: "brk-btn" %> <br>
+      <div class="card-footer">
+        <%= link_to "Return to Projects", projects_path %> <br>
+        <%= link_to "Edit", edit_project_path(@project) %>  &nbsp;
+        <%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure you wish to delete your project?" }  %> <br> <br>
+      </div>
+ </div>
