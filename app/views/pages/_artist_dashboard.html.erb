@@ -8,7 +8,7 @@
         <p> You do not have any projects yet!</p>
       <% else %>
         <% @user_projects.each do |project|%>
-          <%= image_tag "Green_music", class: "card-product-image"%>
+          <%= image_tag "Green_music.jpg", class: "card-product-image"%>
           <div class="card-project-infos">
             <h3> <%= link_to project.title, project_path(project)%> </h3>
             <p> <%= project.status %> </p>
