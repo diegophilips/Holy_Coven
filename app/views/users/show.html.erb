@@ -104,7 +104,7 @@
           </div>
         <% else %>
           <div class="albums-one">
-            <!-- add image to projects -->
+            <%= @latest_release[-1].photo %>
           </div>
           <div class="release-info">
             <h6><strong><%=@latest_release.title %></strong></h6>
@@ -131,17 +131,18 @@
       <% elsif @ongoing_projects.count == 1%>
         <div class="albums-one">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= image_tag @ongoing_projects[-1].photo %>
           </div>
           <div class="release-info">
-            <h6><strong><%=@ongoing_projects[-1].title%></strong>:</h6>
+            <h6><strong><%= link_to @ongoing_projects[-1].title, project_path(@ongoing_projects[-1]) %></strong>:</h6>
             <p><em><%= @ongoing_projects[-1].status %></em></p>
+
           </div>
         </div>
       <% elsif @ongoing_projects.count == 2%>
         <div class="albums-two">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= image_tag @ongoing_projects[-2].photo %>
           </div>
           <div class="release-info">
             <h6><strong><%=@ongoing_projects[-1].title%>:</strong></h6>

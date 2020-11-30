@@ -1,12 +1,20 @@
-<div class="profile-pro">
-  <div class="profile-card_pro">
-      <div class="profile-card-image_pro">
-        <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, height: 300, width: 400, overflow: :hidden %>
+<div class="profile-card">
+
+  <div class="hero-image">
+    <%= image_tag "HC_LOGO_RGB-04.png" %>
+  </div>
+
+
+  <div class="content">
+    <div class="profile-left">
+      <div class="profile-card-image">
+        <% if @pro.photo.attached? %>
+          <%= cl_image_tag @pro.photo.key, height: 300, width: 400, overflow: :hidden %>
         <% else %>
           <%= image_tag "user.png"%>
         <% end %>
-
+      </div>
+      <% if current_user == @pro %>
         <div class="update-image">
             <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
               Update Profile Picture
@@ -18,47 +26,45 @@
             </div>
           </div>
         </div>
+        <% end %>
 
-      <div class="profile-spotify">
-        <iframe src="https://open.spotify.com/embed/artist/<%= @user.spotify_artist_link %>" width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
 
       <div class="profile-left-header">
         <h6>About <%= @user.artist_name %> </h6>
         <p><%= @user.bio %> </p>
       </div>
-      <div class="profile-left-header">
-        <h6>Follow <%= @user.artist_name %> </h6>
-        <% if @user = current_user %>
-          <% if @user.instagram_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
-              <i class="fab fa-instagram-square"></i>
-            </a>
+
+    </div>
+
+    <div class="profile-right">
+      <div class="profile-header">
+        <h1><%= @user.first_name.upcase %> <%= @user.last_name.upcase %> </h1>
+        <h4>HOLY COVEN TEAM</h4>
+      </div>
+
+      <div class="profile-subheader">
+        <h6>Services</h6>
+
+        <div class="album-cover">
+      <!--     <%= image_tag "HC_LOGO_RGB-04.png" %> -->
+          <% @userservice.each do |service| %>
+            <p><strong><%= service.type_of_service %></strong>
           <% end %>
-          <% if @user.facebook_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
-              <i class="fab fa-twitter-square"></i>
-            </a>
-          <%end %>
-          <% if @user.facebook_link.nil? && @user.instagram_link.nil?  %>
-            <p>Update your profile to add your social media!</p>
-          <% end %>
-        <% else %>
-          <% if @user.instagram_link.present? %>
-            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
-              <i class="fab fa-instagram-square"></i>
-            </a>
-          <% end %>
-          <% if @user.facebook_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
-              <i class="fab fa-twitter-square"></i>
-            </a>
-          <%end %>
-          <% if @user.facebook_link.nil?  && @user.instagram_link.nil?  %>
-            <p><%= @user.artist_name%> has not added their social media</p>
-          <% end %>
-        <% end %>
+        </div>
+
+
+
+      <div class="profile-subheader">
+        <h6>Message</h6>
+      </div>
+
+      <div class="profile-subheader">
+        <h6>Reviews</h6>
+      </div>
+
       </div>
     </div>
+    </div>
   </div>
+</div>
 

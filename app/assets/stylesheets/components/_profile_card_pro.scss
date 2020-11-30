@@ -1,31 +1,18 @@
-.profile-pro {
+.profile-card-pro{
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: minmax(150px, auto);
+  width: 420px;
   margin: 50px auto;
   padding: 50px;
   background: #262626;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 720px;
 }
 
-
-.profile-card_pro {
-  display: grid;
-  // grid-template-rows: auto;
-  background: #0A090A;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  padding-bottom: 32px;
-  width: 640px;
-  .profile-card-image_pro {
-    position: relative;
-    img {
-      object-fit: cover;
-      width: 100%;
-      border-top-right-radius: 5px;
-      border-top-left-radius: 5px;
-    }
-  }
+.content-pro {
+  display:grid;
+  grid-template-columns: 1fr;
+  background: transparent;
+  position: relative;
 }
