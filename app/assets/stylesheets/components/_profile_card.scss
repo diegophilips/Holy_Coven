@@ -1,93 +1,137 @@
-.card-user-profile {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #262626;
-  margin: 64px 152px 64px 152px;
-  position:relative;
-  height: 800px;
-}
-
-.hero-image img {
-  margin-top: 0px;
-  width: 100%;
-  height: 240px;
-  opacity: 20%;
-  object-fit: cover;
-}
-
 .profile-card {
-  border-radius: 1%;
-  position:absolute;
-  top:-160px;
-  left:50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(150px, auto);
+  margin: 50px 100px;
+  padding: 50px;
+  background: #626262;
+  border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 280px;
-  height: 600px;
-  text-align: left;
-  background-color: #646464;
 }
 
-  .profile-card img{
-    width: 280px;
-    height: 280px;
-    margin-top: 0px;
+.hero-image {
+  margin: -50px -50px -100px -50px;
+  img {
+    opacity: 50%;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
-    border-top-left-radius: 1%;
-    border-top-right-radius: 1%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+}
+
+.content {
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  background: transparent;
+  grid-gap: 48px;
+  position: relative;
+}
+
+.profile-left {
+  display: grid;
+  grid-template-rows: auto;
+  background: #262626;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding-bottom: 32px;
+
+  .profile-spotify {
   }
 
-  .profile-text {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 0px 24px;
-    color: #FBFBFB;
-    font-size: 12px;
-}
-
-.spotify-link {
-    color: #f8f9fa;
-    background-color: transparent;
-    border: 1px solid #f8f9fa;
-}
-
-
-
-.profile{
-      padding: 10px 10px 5px 50px;
-      position: relative;
-    }
-
-
-  .profile_header {
-    position: relative;
-    top: -100px;
-    margin-bottom: 10px;
-    // padding: 10px 10px 5px 50px;
-    h1 {
-      color: #FBFBFB;
+  .profile-left-header {
+    text-align: center;
+    h6 {
+      margin: 8px 48px;
+      padding-bottom: 4px;
+      border-bottom: 0.5px solid #FBFBFB;
     }
     p {
-      color: #FBFBFB;
+      font-size: 12px;
+      margin: 8px 32px;
     }
-
+    i {
+      font-size: 32px;
+      color: #fbfbfb;
+    }
   }
-
-  .profile-body {
-    margin-left: 8px;
-    // padding: 10px 10px 5px 50px;
-    // position: absolute;
-    width: 700px;
-    font-family: Poppins;
-
-    h3 {
-      color: #FBFBFB;
-
-    }
-    h6 {
-      color: #FBFBFB;
-    }
 }
-.view-more h1{
-  color: #FBFBFB;
+
+.profile-card-image {
+  position: relative;
+  img {
+    object-fit: cover;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  .update-image-btn {
+  background: rgba(0, 0, 0, 0.2);
+  border-style: none;
+  padding: 0;
+  width: 100%;
+  color: #626262;
+  height: 32px;
+  bottom: 0;
+  position: absolute fixed;
+  }
+}
+    // #user_photo {
+    //   background: transparent;
+    //   // height: 10px;
+    //   margin: 0;
+    //   font-size: small;
+    //   color: #FBFBFB;
+    //   width: 200px;
+    // }
+
+.profile-right {
+  color: black;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.profile-header {
+  height: 99px;
   font-family: Poppins;
-  font-size: 12px;
-  vertical-align: center;
+  color: #FBFBFB;
+  display: grid;
+  grid-template-columns: 1fr;
+  position:relative;
+
+  .profile-spotify-follow-btn {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    bottom: 0;
+    padding-bottom: 5px;
+  }
+}
+
+.profile-subheader {
+  margin-top: 50px;
+  color: #FBFBFB;
+}
+
+.profile-link {
+  border-radius: 15px;
+  font-size: 10px;
+  color: white;
+}
+.albums-release {
+  display:grid;
+  grid-template-rows: 150px 1fr;
+  grid-template-columns: (150px 1fr) auto;
+  position:relative;
+  background: #262626;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  color: #FBFBFB;
+}
+
+.albums-row {
+  display: grid;
+  grid-template-rows: 150px 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  position:relative;
 }

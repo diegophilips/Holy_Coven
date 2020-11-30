@@ -1,29 +1,65 @@
-.project-card {
-    display: flex;
-    height: 150px;
-    width: 150px;
-    position: relative;
-    text-align: center;
-    justify-content: center;
+.album-cover {
+  display:grid;
+  position: relative;
+  margin: auto;
+  height: 142px;
+  width: 142px;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  background: #grey;
+
+  p {
+    width: 142px;
+    position: absolute;
+    bottom: 0;
+    background-color: #262626;
+    color: #FBFBFB;
+    font-size: 10px;
+    margin:0;
+    padding: 5px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  img {
+    height: 142px;
+    width: 142px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
 }
 
-  .album-cover h6 {
-    padding: 5px 5px;
+.blank-album-cover {
+  display:grid;
+  position: relative;
+  margin: auto;
+  height: 142px;
+  width: 142px;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  background: grey;
+
+
+  p {
+    width: 142px;
     position: absolute;
-    bottom: 55px;
-    right: 50px;
-    background-color: #646464;
-    // transform: translate(-50%, -50%);
-    margin: auto;
-    // justify-content: center;
+    bottom: 0;
+    background-color: #262626;
+    color: #FBFBFB;
+    font-size: 10px;
+    margin:0;
+    padding: 5px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
 
-
-  .album-cover img {
+  img {
     opacity: 50%;
+    height: 142px;
+    width: 142px;
     object-fit: cover;
-    height: 150px;
-    width: 150px;
-    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   }
-
+}

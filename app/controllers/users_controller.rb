@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.find(params[:id])
     @user_projects = @user.projects
+    @ongoing_projects = @user.projects.where(status: "Writing in Progress" || "Demo Recorded" || "Production in Progress" || "Ready to be released")
+    @completed_projects = @user.projects.where(status: "Completed")
+    @latest_release = @completed_projects[-1]
+    @userservice = @user.services
+
     # @bookings = Booking.find(params[:id])
     if @user.pro
       # show pro profile
