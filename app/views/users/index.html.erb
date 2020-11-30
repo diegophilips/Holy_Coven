@@ -3,21 +3,23 @@
 <div class="row">
   <% @pros.each do |pro|%> <hr>
       <div class="col-12 col-sm-6 col-md-4">
-        <div class="card-index-pro m-3">
+        <div class="card-index-pro mt-5 m-3">
           <% if pro.photo.attached? %>
-            <%= cl_image_tag pro.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag pro.photo.key, class: "avatar-big dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "user.png", class: "avatar-big dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <h3><%= pro.first_name %> <%= pro.last_name %></h3>
           <h6><%= pro.bio %></h6> <hr>
-          <div class="bt-center">
+          <div class="card-footer">
             <%= link_to "More info", user_path(pro),  class: "brk-btn"%>
           </div>
         </div>
       </div>
   <% end %>
 </div>
-<%= link_to "Back to Services", services_path %>
-<%= link_to "Back to dashboard", dashboard_path %>
+<div class="center-back">
+  <%= link_to "Back to Services", services_path %> &nbsp;
+  <%= link_to "Back to dashboard", dashboard_path %>
+</div>
 
