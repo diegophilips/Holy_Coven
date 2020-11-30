@@ -17,7 +17,7 @@
   <% if user_signed_in?%>
     <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-dark" %>
   <% else %>
-    <%= link_to "Explore the Coven", new_user_registration_path, class: "btn btn-outline-success" %>
+    <%= link_to "Explore the Coven", new_user_registration_path, class: "brk-btn" %>
     <%= link_to "Sign in", new_user_session_path, class: "btn btn-dark" %>
   <% end %>
 
