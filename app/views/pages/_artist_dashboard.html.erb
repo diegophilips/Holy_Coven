@@ -2,30 +2,21 @@
 <h1 class="hello">Hello <%= @user.artist_name %>!</h1>
 
 <div class="dashboard-container">
- <!--  <div class="col-12 col-lg-8"> -->
-    <!-- <div class="col-lg-4"> -->
   <div class="container-item project-div">
-      <div class="card-project card-product">
-        <% if @user_projects.empty? == true %>
-          <p> You do not have any projects yet!</p>
-        <% else %>
-          <% @user_projects.each do |project|%>
-            <%= image_tag "Green_music", class: "card-product-image"%>
-            <div class="card-project-infos">
-              <h3> <%= link_to project.title, project_path(project)%> </h3>
-              <p> <%= project.status %> </p>
-            </div>
-          <% end %>
+    <div class="card-project card-product">
+      <% if @user_projects.empty? == true %>
+        <p> You do not have any projects yet!</p>
+      <% else %>
+        <% @user_projects.each do |project|%>
+          <%= image_tag "Green_music.jpg", class: "card-product-image"%>
+          <div class="card-project-infos">
+            <h3> <%= link_to project.title, project_path(project)%> </h3>
+            <p> <%= project.status %> </p>
+          </div>
         <% end %>
-      </div>
-   <!--  </div> -->
-
-  <div class="container-item start-new-div">
-    <%= link_to "Create a new project", new_project_path, class: "btn btn-outline-success btn-lg create-project"%>
+      <% end %>
+    </div>
   </div>
-  </div>
-
-
   <div class="container-item book-div">
     <div class="card-book">
       <% if @user_bookings.empty? == true %>
@@ -41,9 +32,12 @@
 
 
 <!-- </div> -->
-<div class="spotify_card">
-  <iframe src="https://open.spotify.com/embed/artist/3ccrJOoILrsst0M1V0PlP3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
- </div>
-
+  <div class="spotify_card">
+    <iframe src="https://open.spotify.com/embed/artist/3ccrJOoILrsst0M1V0PlP3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
 
 </div>
+
+ <div id="dashboard-project">
+    <%= link_to "Create a new project", new_project_path, class: "btn btn-outline-success btn-lg create-project"%>
+ </div>

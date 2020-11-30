@@ -26,10 +26,10 @@ puts "made #{User.count} users"
 
 
 Service.destroy_all
-Service.create!(type_of_service: "Social media management" , description: " Description : add it later" )
-Service.create!(type_of_service: "Marketing" , description: "Description : add it later" )
-Service.create!(type_of_service: "PR and playlisting" , description: "Description : add it later" )
-Service.create!(type_of_service: "Production" , description: "Description : add it later" )
-Service.create!(type_of_service: "Creative coaching " , description: "Description : add it later" )
-Service.create!(type_of_service: "Legal & administrative advising " , description: "Description : add it later" )
+Service.create!(type_of_service: "Social media management" , description: "Get help with Instagram, Facebook, Twitter & TikTok" )
+Service.create!(type_of_service: "Marketing" , description: "Get help on how to market your next release" )
+Service.create!(type_of_service: "PR and playlisting" , description: "Get help getting in touch with blogs, journalists and playlist curators" )
+Service.create!(type_of_service: "Production" , description: "Get help with your mixing, mastering or recordings" )
+Service.create!(type_of_service: "Creative coaching " , description: "Get help on how to boost your creativity" )
+Service.create!(type_of_service: "Legal & administrative advising " , description: "Get help with administration and your rights as a musician" )
 puts "made #{Service.count} Services"

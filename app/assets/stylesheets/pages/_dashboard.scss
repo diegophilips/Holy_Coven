@@ -74,6 +74,9 @@
 //   margin: 0 auto;
 //   // display: inline-block;
 // }
+#dashboard-project {
+  margin-left: 270px;
+}
 
 .start-new-div {
   width: 100%;
@@ -83,4 +86,13 @@
 .spotify_card {
   margin-right: 10px;
 }
+
+.card-new {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+
 

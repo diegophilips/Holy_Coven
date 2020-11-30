@@ -1,3 +1,6 @@
-<%= render partial: 'projects/form', locals: {model: @project, url: projects_path, verb: :post} %>
-
-<%= link_to "Return to dashboard", dashboard_path, class: "btn btn-outline-danger" %>
+<div id="project-form">
+  <%= render partial: 'projects/form', locals: {model: @project, url: projects_path, verb: :post} %>
+</div>
+<div class="card-new">
+  <%= link_to "Return to dashboard", dashboard_path, class: "btn btn-outline-success" %>
+</div>
