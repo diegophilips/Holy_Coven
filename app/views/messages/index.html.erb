@@ -1,6 +1,6 @@
-<div class= "m-5 container">
+<div class= "mt-5 container mess-box">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 mess-avatar">
       <p>Your Messages with: </p>
        <% @conversations.each do |conversation| %>
        <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
@@ -10,12 +10,14 @@
           <% recipient = User.find(conversation.sender_id) %>
         <% end %>
         <ul>
+          <div class="mess-info">
           <li><%= link_to recipient.first_name,   conversation_messages_path(conversation)%></li>
+          </div>
         </ul>
        <% end %>
       <% end %>
     </div>
-    <div class="col-8">
+    <div class="col-8 mess-message">
       <div class="bg-white p-3">
         <% if @over_ten %>
          <%= link_to 'Show Previous', '?m=all' %>
@@ -29,11 +31,9 @@
                 <%= image_tag "user.png", class: "avatar" %>
               <% end %>
               <span class= "rounded p-3 <%= message.user == current_user ? "bg-primary" : "bg-dark" %>"> <%= message.body %> </span>
+            <%end %>
+          <%end%>
             </div>
-          <%end %>
-
-
-        <%end%>
         <div class ="message-form">
           <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
             <div class="m-3 field">
@@ -46,8 +46,8 @@
           <% end %>
         </div>
       </div>
-    </div>
   </div>
+</div>
 
 
 
