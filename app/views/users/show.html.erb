@@ -58,29 +58,29 @@
       </div>
 
 
-        <div class="profile-subheader">
+      <div class="profile-subheader">
         <h6>Latest Release</h6>
-        </div>
+      </div>
 
-        <div class="albums-release">
-          <% if @latest_release.blank? %>
-            <div class="album-cover">
-              <%= image_tag "HC_LOGO_RGB-04.png" %>
-            </div>
-            <div class="release-info">
-              <p><%= @user.artist_name %> has not released any music yet, follow them to stay tuned!</p>
-            </div>
-          <% else %>
-            <div class="album-cover">
-              <!-- add image to projects -->
-            </div>
-            <div class="release-info">
-              <h6><%=@latest_release.title %></h6>
-              <p><%=@latest_release.description %></p>
-              <%= link_to "View Project", project_path(@latest_release) %>
-            </div>
-          <% end %>
-        </div>
+      <div class="albums-release">
+        <% if @latest_release.blank? %>
+          <div class="album-cover">
+            <%= image_tag "HC_LOGO_RGB-04.png" %>
+          </div>
+          <div class="release-info">
+            <p><%= @user.artist_name %> has not released any music yet, follow them to stay tuned!</p>
+          </div>
+        <% else %>
+          <div class="album-cover">
+            <!-- add image to projects -->
+          </div>
+          <div class="release-info">
+            <h6><%=@latest_release.title %></h6>
+            <p><%=@latest_release.description %></p>
+            <%= link_to "View Project", project_path(@latest_release) %>
+          </div>
+        <% end %>
+      </div>
 
       <div class="profile-subheader">
         <h6><%= @user.artist_name %>'s Current Projects</h6>
@@ -103,16 +103,16 @@
       <% else %>
         <div class="albums-row">
           <% if @ongoing_projects[-1].blank? %>
-          <div class="blank-album-cover">
-            <p>Shh..</p>
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
-          </div>
+            <div class="blank-album-cover">
+              <p>Shh..</p>
+              <%= image_tag "HC_LOGO_RGB-04.png" %>
+            </div>
           <% else %>
             <div class="album-cover">
             <%= image_tag "HC_LOGO_RGB-04.png" %>
             <p><%=link_to @ongoing_projects[-1].title, projects_path(@ongoing_projects[-1].id)%></p>
 <!-- CHECK THIS PATH-->
-      </div>
+        </div>
           <% end %>
         <div class="album-cover">
           <% if @ongoing_projects[-2].blank? %>
@@ -147,8 +147,8 @@
             <p><%=@ongoing_projects[-4].title %></p>
           <% end %>
         </div>
-      <% end %>
-</div>
+    <% end %>
+
            <div class="profile-link btn btn-outline-light">
             <%= link_to "View all Projects", projects_path %>
           </div>
@@ -191,8 +191,8 @@
             </div>
           </div>
           <% end %>
-
       </div>
+    </div>
     </div>
   </div>
 </div>
