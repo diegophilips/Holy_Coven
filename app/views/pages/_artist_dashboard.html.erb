@@ -6,43 +6,65 @@
         <div class="container-item project-div col-sm-12 col-md-6">
           <div class="row">
             <% if @user_projects.empty? == true %>
-            <p> You do not have any projects yet!</p>
+              <p> You do not have any projects yet!</p>
             <% else %>
               <% @user_projects.each do |project|%>
                 <div class="col-sm-12 card-project card-product">
-                  <%= image_tag "Green_music.jpg", class: "card-product-image"%>
-                  <div class="card-project-infos">
-                    <h3> <%= link_to project.title, project_path(project)%> </h3>
-                    <p> <%= project.status %> </p>
-                  </div>
+                  <% if project.photo.attached? %>
+                    <%= cl_image_tag project.photo.key, class: "card-product-image", height: 300, width: 400, overflow: :hidden %>
+                  <% else %>
+                    <%= image_tag "user.png", class: "card-product-image" %>
+                  <% end %>
+                <div class="card-project-infos">
+                  <h3> <%= link_to project.title, project_path(project)%> </h3>
+                  <p> <%= project.status %> </p>
                 </div>
+               </div>
               <% end %>
             <% end %>
           </div>
         </div>
         <div class="container-item book-div col-sm-12 col-md-6">
-          <div class="card-book">
+          <% if @user.projects.last.photo.attached? %>
+            <div class="card-book" style="background-image: linear-gradient(#212529, rgba(0,0,0,0.37) ), url('<%= cl_image_path @user.projects.last.photo.key %>')">
+            <% else %>
+              <div class="card-book">
+            <% end %>
+            <p>Your current project</p>
+
+            <% if @user.projects.empty? %>
+              <p>You don't have a current project.</p>
+            <% else %>
+              <h6><%= @user.projects.last.title %><h6>
+              <h6><%= @user.projects.last.description %><h6>
+              <h6>Start Date: <%= @user.projects.last.start_date %><h6>
+              <h6><%= @user.projects.last.status %><h6>
+              <h6>Last Updated: <%= @user.projects.last.updated_at %><h6>
+
+            <% end %>
+          </div>
+
+          <div class="create-button">
+            <%= link_to "Create a new project", new_project_path, class: "brk-btn btn-lg" %>
+          </div>
+        </div>
+
+       <div class="card-team mt-4">
+        <div class="row">
+          <!-- <div class="card-book"> -->
             <% if @user_bookings.empty? == true %>
               <p>You do not have any bookings yet!</p>
-              <p> <%= link_to "Book a new service", services_path, class: "btn btn-outline-success btn-lg" %> </p>
+              <p> <%= link_to "Book a new service", services_path, class: "brk-btn" %> </p>
             <% else %>
               <% @user_bookings.each do |booking|%>
               <p> <%= booking.date %> </p>
                <% end %>
             <% end %>
-          </div>
-        <%= link_to "Create a new project", new_project_path, class: "btn btn-outline-success btn-lg create-project ml-2 mt-4"%>
-        </div>
+        <!-- </div> -->
       </div>
-   <!--   <div id="dashboard-project">
-     </div> -->
-       <div class="card-team mt-4">
-        <div class="row">
-          <h2>Your next appointment</h2>
-        </div>
       </div>
     </div>
-
+  </div>
   </div>
   <div class="col-3">
     <div class="spotify_card">
