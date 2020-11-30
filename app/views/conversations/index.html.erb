@@ -1,28 +1,33 @@
 <div class= "card-container-convo">
   <div class= "convo-info">
- <h3>My Messages</h3>
- <h4>New messages from</h4>
-</div>
-  <div class="grid-container-convo">
+   <h3>My Messages</h3>
+   <h4>New messages from</h4>
+ </div>
+ <div class="grid-container-convo">
    <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
+     <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+       <% if conversation.sender_id == current_user.id %>
+       <% recipient = User.find(conversation.recipient_id) %>
+       <% else %>
+       <% recipient = User.find(conversation.sender_id) %>
+       <% end %>
+       <div class="convo-box">
+        <div class="convo-avatar">
+          <% if conversation.recipient.photo.attached? %>
+          <%= cl_image_tag conversation.recipient.photo.key, class: "avatar" %>
+          <% else %>
+          <%= image_tag "user.png", class: "avatar" %>
+          <% end %>
+        </div>
+        <div class="convo-text">
+          <%= link_to recipient.first_name,   conversation_messages_path(conversation)%>
+          <p><%= conversation.messages.last.body %></p>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-    <div class="convo-box">
-    <% if conversation.recipient.photo.attached? %>
-      <%= cl_image_tag conversation.recipient.photo.key, class: "avatar" %>
-    <% else %>
-      <%= image_tag "user.png", class: "avatar" %>
-    <% end %>
-    <%= link_to recipient.first_name,   conversation_messages_path(conversation)%>
-    </div>
-   <% end %>
-  <% end %>
   </div>
 </div>
-
-
-
+<div class="convo-btn">
+  <%= link_to "Back to dashboard", dashboard_path, class: "brk-btn" %>
+</div>

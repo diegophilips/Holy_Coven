@@ -3,15 +3,15 @@ module ApplicationHelper
     if service.type_of_service.strip.downcase == "marketing"
       "Marketing.jpg"
     elsif service.type_of_service.strip.downcase == "production"
-      "Production.jpg"
+      "production.png"
     elsif service.type_of_service.strip.downcase == "creative coaching"
-      "Creative_coaching.jpg"
+      "creative.png"
     elsif service.type_of_service.strip.downcase == "social media management"
-      "Social_media_management.jpg"
+      "social.png"
     elsif service.type_of_service.strip.downcase == "pr and playlisting"
-      "Pr_and_playlisting.jpg"
+      "pr.png"
     elsif service.type_of_service.strip.downcase == "legal & administrative advising"
-      "Legal_and_ad.jpg"
+      "legal.png"
     end
   end
 end
