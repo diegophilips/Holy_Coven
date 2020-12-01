@@ -48,7 +48,6 @@
           <!-- <div class="card-book"> -->
             <% if @user_bookings.empty? == true %>
               <p>You do not have any bookings yet!</p>
-              <p> <%= link_to "Book a new service", services_path, class: "brk-btn" %> </p>
             <% else %>
               <% @user_bookings.each do |booking|%>
               <p> <%= booking.date %> </p>

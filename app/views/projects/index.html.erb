@@ -1,26 +1,30 @@
-  <div class="pro-header">
-    <h1>Your Projects</h1>
-  </div>
-<div class="container d-flex">
+<div class="pro-header">
+  <h1>Your Projects</h1>
+</div>
+<div class="row">
   <% @projects.each do |project|%>
-  <div class="m-5 projects-card">
-    <div class="m-2 card__image">
-        <% if project.photo.attached? %>
-          <%= cl_image_tag project.photo.key, class: "album-cover", overflow: :hidden %>
-        <% else %>
-          <%= image_tag "Green_music.jpg", class: "album-cover" %>
-        <% end %>
-    </div>
-    <div class="project-info">
-        <h2><%= project.title %></h2>
-          <p> <%= project.description %> </p>
-          <p> Started on : <%= project.start_date %> </p>
-          <p> <%= project.status %> </p>
-    </div>
-      <div class="project-buttons">
-        <%= link_to "See more", project_path(project), class: "brk-btn" %>
+     <div class="col-12 col-sm-6 col-md-4">
+        <div class="card-index-pro mt-5 m-3">
+          <% if project.photo.attached? %>
+            <%= cl_image_tag project.photo.key, class: "avatar-big", overflow: :hidden %>
+          <% else %>
+            <%= image_tag "Green_music.jpg", class: "avatar-big" %>
+          <% end %>
+          <div class="project-info">
+            <h2><%= project.title %></h2> <br>
+              <h6> <%= project.description %> </h6>
+              <h6> Started on : <%= project.start_date %> </h6>
+              <h6> <%= project.status %> </h6>
+          </div>
+          <div class="card-footer">
+            <%= link_to "See more", project_path(project), class: "brk-btn" %>
+          </div>
+        </div>
       </div>
-  </div>
   <% end %>
 </div>
+<div class="center-back">
+  <%= link_to "Back to dashboard", dashboard_path %>
+</div>
+
 
