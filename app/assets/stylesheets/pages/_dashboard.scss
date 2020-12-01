@@ -2,11 +2,37 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: minmax(150px, auto);
-  // margin-left: -15px;
-  padding: 50px;
-  background: #626262;
-  border-radius: 15px;
+  padding: 25px;
+  background: #333;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 755px;
+  display: left;
+  max-width: 1100px;
+  .create-button {
+  margin-left: 120px;
+  margin-top: 100px;
+  }
+  .card-team {
+  margin: 8px;
+  margin-left: 20px;
+  background-color: #262626;
+  color: #FBFBFB;
+  box-shadow: 30;
+  padding: 35px;
+  padding-right: 35px;
+  overflow: hidden;
+  height: 250px;
+  width: 450px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  position: absolute;
+  right: 26%;
+  bottom: 3.5%;
+  }
 }
 
 .hello {
@@ -14,18 +40,26 @@
   margin-top: 20px;
   background-color: #262626;
   color: #FBFBFB;
-  // display: inline-block;
   padding: 15px;
   padding-right: 50px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border-radius: 15px;
+  h1 {
+    position: middle;
+  }
 }
 
 
 .dashboard-container {
-  display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: space-evenly;
+  .spotify_card {
+  margin-right: 10px;
+  border-radius: 15px;
+  float: right;
+  margin-top: 40px;
+  border-radius: 15px;
+  }
 }
 
 .project-div {
@@ -50,10 +84,11 @@
   padding-right: 35px;
   overflow: hidden;
   height: 220px;
+  width: 900px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
-  border-radius: 15px
+  border-radius: 15px;
 }
 
 .card-product-image {
@@ -86,35 +121,20 @@
   color: #FBFBFB;
   box-shadow: 30;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  // height: 220px;
   border-radius: 15px;
   padding: 10px;
   text-align: center;
-
+  height: 250px;
+  width: 530px;
+  margin-left: 10px;
 }
 
-.card-book p {
-  text-decoration: underline;
-
-}
-
-// .create-project {
-//   // width: 100%;
-//   margin: 0 auto;
-//   // display: inline-block;
-// }
-// #dashboard-project {
-//   margin-left: 270px;
-// }
 
 .start-new-div {
   width: 100%;
   margin-right: 200px;
 }
 
-.spotify_card {
-  margin-right: 10px;
-}
 
 .card-new {
   display: flex;
@@ -137,11 +157,6 @@
   display: flex;
   align-items: center;
   border-radius: 15px;
-}
-
-.create-button {
-  margin-left: 100px;
-  margin-top: 30px;
 }
 
 
