@@ -30,6 +30,7 @@ import "bootstrap";
 import { dropdownhome } from '../pages/dropdownhome';
 import { initLogoLoad } from '../pages/animation';
 import { nebula } from '../pages/nebula';
+import { about } from '../pages/about' ;
 
 
 document.addEventListener('turbolinks:load', () => {
