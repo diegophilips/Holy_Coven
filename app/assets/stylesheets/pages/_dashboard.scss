@@ -42,7 +42,7 @@
 .hello {
   margin: 0px;
   margin-top: 20px;
-  background-color: #262626;
+  background-color: #99a8df;
   color: #FBFBFB;
   padding: 15px;
   padding-right: 50px;
@@ -50,6 +50,14 @@
   border-radius: 15px;
   h1 {
     margin-left: 20px;
+    text-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  img {
+    position: absolute;
+    top: 0.5%;
+    left: 50%;
+    height: 300px;
+    width: 300px;
   }
 }
 
