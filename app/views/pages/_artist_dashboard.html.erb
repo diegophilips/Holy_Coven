@@ -3,6 +3,7 @@
     <iframe src="https://open.spotify.com/embed/artist/3ccrJOoILrsst0M1V0PlP3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </div>
   <div class="dashboard-card">
+
     <div class="hello"><h1>Hello <%= @user.artist_name %>!</h1></div>
       <div class="row">
         <div class="container-item project-div col-sm-6 col-md-6">
@@ -45,6 +46,7 @@
       </div>
 
       <div class="card-team col-sm-6 col-md-6">
+        <h3> Your Team </h3>
         <% if @user_bookings.empty? == true %>
           <p>You do not have any bookings yet!</p>
         <% else %>
