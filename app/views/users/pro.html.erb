@@ -48,6 +48,12 @@
             <p><%= service.type_of_service %></p>
         </div>
          <% end %>
+       </div>
+
+      <div class="profile-subheader pt-3 pb-5">
+
+        <%= link_to "Message #{@user.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "brk-btn"%>
+        <%= link_to "View the rest of the team", services_path,  class: "brk-btn"%>
       </div>
 
 
@@ -59,15 +65,7 @@
     </div>
 
 
-        <div class="profile-subheader">
-        <h6>buttons</h6>
-        <%= link_to "View the rest of the team", services_path %>
 
-        <!--  how to get back to specific page? -->
-
-        <%= link_to "Message me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'%>
-        <%= link_to "Book Me!", new_user_booking_path(@user) %>
-      </div>
 
 
       <div class="profile-subheader">
@@ -91,39 +89,6 @@
           </div>
         </div>
 
-
-        <nav id="navbar-example2" class="navbar navbar-light bg-dark">
-          <a class="navbar-brand" href="#">Reviews</a>
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <a class="nav-link" href="#fat">@fat</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#mdo">@mdo</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#one">one</a>
-                <a class="dropdown-item" href="#two">two</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#three">three</a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-          <h4 id="fat">@fat</h4>
-          <p>...</p>
-          <h4 id="mdo">@mdo</h4>
-          <p>...</p>
-          <h4 id="one">one</h4>
-          <p>...</p>
-          <h4 id="two">two</h4>
-          <p>...</p>
-          <h4 id="three">three</h4>
-          <p>...</p>
-        </div>
 
 
         <ul class="list-group">
