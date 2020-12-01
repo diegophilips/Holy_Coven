@@ -1,5 +1,6 @@
 <div class="profile-card">
 
+
   <div class="hero-image">
     <%= image_tag "HC_LOGO_RGB-04.png" %>
   </div>
@@ -13,20 +14,18 @@
         <% else %>
           <%= image_tag "user.png"%>
         <% end %>
-      </div>
-      <% if current_user == @pro %>
+
         <div class="update-image">
-            <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
-              Update Profile Picture
-            </button>
+          <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
+            Update Profile Picture
+          </button>
         </div>
-          <div class="collapse" id="upload-image">
-            <div class="update-image update-image-body">
-              <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
-            </div>
+        <div class="collapse" id="upload-image">
+          <div class="update-image update-image-body">
+            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
           </div>
         </div>
-        <% end %>
+      </div>
 
 
       <div class="profile-left-header">
@@ -41,25 +40,92 @@
         <h1><%= @user.first_name.upcase %> <%= @user.last_name.upcase %> </h1>
         <h4>HOLY COVEN TEAM</h4>
       </div>
+       <div class="profile-subheader">
+        <h6>Services</h6>
+      <div class="circle-row">
+              <% @userservice.each do |service| %>
+        <div class="circle-card">
+            <p><%= service.type_of_service %></p>
+        </div>
+         <% end %>
+      </div>
+
+
+    <div class="profile-subheader">
+      <h6>Book an Appointment</h6>
+    </div>
+    <div class="profile-subbody">
+      <%= render partial: 'bookings/form', locals: {model: @booking, url: user_bookings_path(@user), verb: :post} %>
+    </div>
+
+
+        <div class="profile-subheader">
+        <h6>buttons</h6>
+        <%= link_to "View the rest of the team", services_path %>
+
+        <!--  how to get back to specific page? -->
+
+        <%= link_to "Message me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'%>
+        <%= link_to "Book Me!", new_user_booking_path(@user) %>
+      </div>
+
 
       <div class="profile-subheader">
-        <h6>Services</h6>
+        <h6>Review <%= @user.first_name%></h6>
+        <p>
+          <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Review <%= @user.first_name%></a>
+        </p>
+        <div class="row">
+          <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+              <div class="card card-body">
+                <div class="profile-subbody">
+                          <%= simple_form_for [ @user, @review ] do |f| %>
+                            <%= f.input :content %>
+                            <%= f.submit "Submit review", class: "btn btn-primary" %>
+                          <% end %>
+                        </div>
 
-        <div class="album-cover">
-      <!--     <%= image_tag "HC_LOGO_RGB-04.png" %> -->
-          <% @userservice.each do |service| %>
-            <p><strong><%= service.type_of_service %></strong>
-          <% end %>
+              </div>
+            </div>
+          </div>
         </div>
 
 
+        <nav id="navbar-example2" class="navbar navbar-light bg-dark">
+          <a class="navbar-brand" href="#">Reviews</a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="#fat">@fat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#mdo">@mdo</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">one</a>
+                <a class="dropdown-item" href="#two">two</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">three</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+          <h4 id="fat">@fat</h4>
+          <p>...</p>
+          <h4 id="mdo">@mdo</h4>
+          <p>...</p>
+          <h4 id="one">one</h4>
+          <p>...</p>
+          <h4 id="two">two</h4>
+          <p>...</p>
+          <h4 id="three">three</h4>
+          <p>...</p>
+        </div>
 
-      <div class="profile-subheader">
-        <h6>Message</h6>
-      </div>
 
-      <div class="profile-subheader">
-        <h6>Reviews</h6>
         <ul class="list-group">
             <% @user.reviews.each do |review| %>
               <li class="list-group-item"><%= review.content %></li>
