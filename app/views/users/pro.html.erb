@@ -60,6 +60,11 @@
 
       <div class="profile-subheader">
         <h6>Reviews</h6>
+        <ul class="list-group">
+            <% @user.reviews.each do |review| %>
+              <li class="list-group-item"><%= review.content %></li>
+            <% end %>
+        </ul>
       </div>
 
       </div>
