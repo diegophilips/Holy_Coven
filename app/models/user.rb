@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :userservices, dependent: :destroy
   has_many :services, through: :userservices
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable,
