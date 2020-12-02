@@ -20,3 +20,21 @@
 .mess-message {
   border-radius: 4px;
 }
+
+.round {
+  background-color: #99a8df;
+  border-radius: 50px;
+}
+
+.form-control {
+  background-color: #333;
+  border: none;
+  color: #FBFBFB;
+  border-radius: 15px;
+  transition: none;
+}
+ .form-control :hover {
+  background-color: #333;
+  border: none;
+  color: #FBFBFB;
+ }
