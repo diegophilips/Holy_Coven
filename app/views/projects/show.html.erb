@@ -8,7 +8,7 @@
     <h2><%= @project.title %></h2> <br> <br> <br>
     <h6><%= @project.description %></h6>
     <h6><%= @project.status %></h6>
-    <h6> You started this project on <%= @project.start_date %></h6>
+    <h6> You started this project on <%= @project.start_date.strftime(' %A %e %B %Y') %></h6>
         <%= link_to "Book in your next step!", services_path, class: "brk-btn" %> <br>
       <div class="card-footer">
         <%= link_to "Return to Projects", projects_path %> <br>

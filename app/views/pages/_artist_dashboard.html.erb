@@ -6,6 +6,7 @@
 
     <div class="hello"><h1>Hello <%= @user.artist_name %>!</h1><%= image_tag "pixeltrue-idea-1.png" %></div>
       <div class="row">
+
         <% if @user.projects.empty? %>
           <p>You don't have a current project.</p>
         <% else %>
@@ -13,13 +14,14 @@
               <h3>Your current project</h3>
               <h6><%= @user.projects.last.title %></h6>
               <h6><%= @user.projects.last.description %></h6>
-              <!-- <h6>Start Date: <%= @user.projects.last.start_date %></h6> -->
+              <h6>Started on: <%= @user.projects.last.start_date.strftime(' %A %e %B %Y') %></h6>
               <h6><%= @user.projects.last.status %></h6>
               <%= link_to project_path(@user.projects.last), class: "rel-link" do %>
 
               <% end %>
             </div>
         <% end %>
+
         <div class="create-button">
           <%= link_to "Create a new project", new_project_path, class: "grey-btn btn-lg" %>
         </div>
@@ -53,6 +55,7 @@
         <% if @user_bookings.empty? == true %>
           <p>You do not have any bookings yet!</p>
         <% else %>
+
           <div id="team-avatar">
             <% @user_bookings.each do |booking|%>
             <% if booking.pro.photo.attached? %>
@@ -63,6 +66,7 @@
               <%= image_tag "user.png", class: "avatar-large" %>
             <% end %>
           </div>
+
 
 
 
