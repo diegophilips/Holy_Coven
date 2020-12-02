@@ -6,12 +6,28 @@
 
     <div class="hello"><h1>Hello <%= @user.artist_name %>!</h1><%= image_tag "pixeltrue-idea-1.png" %></div>
       <div class="row">
+      <% if @user.projects.empty? %>
+        <p>You don't have a current project.</p>
+      <% else %>
+      <div class="card-book col-md-6 col-sm-6" style="background-image: linear-gradient(#212529, rgba(0,0,0,0.37) ), url(<%= @user.projects.last.photo.attached? ? cl_image_path(@user.projects.last.photo.key) : asset-url("user.png")%>)">
+        <h3>Your current project</h3>
+        <h6><%= @user.projects.last.title %></h6>
+        <h6><%= @user.projects.last.description %></h6>
+        <h6>Start Date: <%= @user.projects.last.start_date %></h6>
+        <h6><%= @user.projects.last.status %></h6>
+      <% end %>
+      </div>
+        <div class="create-button">
+          <%= link_to "Create a new project", new_project_path, class: "grey-btn btn-lg" %>
+        </div>
+      </div>
+
         <div class="container-item project-div col-sm-6 col-md-6">
           <div class="row">
             <% if @user_projects.empty? == true %>
               <p> You do not have any projects yet!</p>
             <% else %>
-              <% @user_projects.each do |project|%>
+              <% @user_projects.each do |project|%> <br>
               <div class="col-sm-12 card-project card-product">
                 <% if project.photo.attached? %>
                   <%= cl_image_tag project.photo.key, class: "card-product-image", height: 300, width: 400, overflow: :hidden %>
@@ -25,24 +41,9 @@
               </div>
               <% end %>
             <% end %>
-          </div>
         </div>
-        <div class="create-button">
-          <%= link_to "Create a new project", new_project_path, class: "brk-btn btn-lg" %>
-        </div>
-      </div>
+    </div>
 
-      <% if @user.projects.empty? %>
-        <p>You don't have a current project.</p>
-      <% else %>
-      <div class="card-book col-md-6 col-sm-6" style="background-image: linear-gradient(#212529, rgba(0,0,0,0.37) ), url(<%= @user.projects.last.photo.attached? ? cl_image_path(@user.projects.last.photo.key) : asset-url("user.png")%>)">
-        <p>Your current project</p>
-        <h6><%= @user.projects.last.title %></h6>
-        <h6><%= @user.projects.last.description %></h6>
-        <h6>Start Date: <%= @user.projects.last.start_date %></h6>
-        <h6><%= @user.projects.last.status %></h6>
-      <% end %>
-      </div>
 
       <div class="card-team col-sm-6 col-md-6">
         <h3> Your Team </h3>
