@@ -1,0 +1,5 @@
+meta_product_name: "Holy Coven"
+meta_title: "Holy Coven - Your music, your team, your label"
+meta_description: "Unlike any ordinary record label, Holy Coven is here to help you be apart of a community. A Coven, where our dedicated team is here to help you make the most of your music whilst you maintain complete control of your sound and your image."
+meta_image: "Holy_coven.jpg" # should exist in `app/assets/images/`
+twitter_account: "@HolyCovenRec"   # required for Twitter Cards
