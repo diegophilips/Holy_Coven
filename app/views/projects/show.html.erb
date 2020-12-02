@@ -1,7 +1,7 @@
 
 <div class="card-project-show mt-5 m-3 ">
-            <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar-big " %>
+            <% if @project.photo.attached? %>
+            <%= cl_image_tag @project.photo.key, class: "avatar-big " %>
           <% else %>
             <%= image_tag "user.png", class: "avatar-big " %>
           <% end %>
