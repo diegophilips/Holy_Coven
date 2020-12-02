@@ -2,9 +2,10 @@
   <!-- [...] -->
   <%= f.input :photo, label: "Update Profile Picture:", as: :file, id: "file-button"%>
   <%= f.input :spotify_artist_link %>
+  <p>Only add your username below:</p>
   <%= f.input :facebook_link, label: "Facebook"%>
-  <%= f.input :instagram_link %>
-  <%= f.input :twitter_link %>
+  <%= f.input :instagram_link, label: "Instagram" %>
+  <%= f.input :twitter_link, label: "Twitter" %>
   <!-- [...] -->
   <%= f.button :submit, "UPDATE PROFILE", id: "profile-update-btn"%>
 <% end %>
