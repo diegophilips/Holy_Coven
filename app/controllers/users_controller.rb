@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:photo)
+    params.require(:user).permit(:photo, :spotify_artist_link, :instagram_link, :facebook_link, :twitter_link)
   end
 end
 
