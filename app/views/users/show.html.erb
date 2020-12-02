@@ -29,7 +29,7 @@
           </div>
         </div>
       <div class="profile-spotify">
-        <iframe src="<%=@user.spotify_artist_link%>" width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <iframe src='<%=@user.spotify_artist_link%>' width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
 
 <!-- https://open.spotify.com/artist/4ClziihVpBeFXNyDH83Lde?si=qnFHzuwrQsyHKHtPNPNpcg
@@ -40,32 +40,18 @@
       <div class="profile-left-header">
         <h6>Follow <%= @user.artist_name %> </h6>
         <% if @user = current_user %>
-          <% if @user.instagram_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
-              <i class="fab fa-instagram-square"></i>
-            </a>
-          <% end %>
-          <% if @user.facebook_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
-              <i class="fab fa-twitter-square"></i>
-            </a>
-          <%end %>
-          <% if @user.facebook_link.nil? && @user.instagram_link.nil?  %>
+          <% if @user.instagram_link.nil? && @user.twitter_link.nil? && @user.facebook_link.nil? %>
             <p>Update your profile to add your social media!</p>
-          <% end %>
-        <% else %>
-          <% if @user.instagram_link.present? %>
+          <% else %>
             <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
               <i class="fab fa-instagram-square"></i>
             </a>
-          <% end %>
-          <% if @user.facebook_link.present?  %>
-            <a href="https://www.instagram.com/<%= @user.facebook_link %>/">
+            <a href="https://www.twitter.com/<%= @user.twitter_link %>/">
               <i class="fab fa-twitter-square"></i>
             </a>
-          <%end %>
-          <% if @user.facebook_link.nil?  && @user.instagram_link.nil?  %>
-            <p><%= @user.artist_name%> has not added their social media</p>
+            <a href="https://www.facebook.com/<%= @user.facebook_link %>/">
+              <i class="fab fa-facebook-square"></i>
+            </a>
           <% end %>
         <% end %>
       </div>

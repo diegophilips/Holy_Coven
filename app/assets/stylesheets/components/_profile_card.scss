@@ -60,6 +60,7 @@
     i {
       font-size: 32px;
       color: #fbfbfb;
+      padding: 5px;
     }
   }
 }
@@ -100,11 +101,14 @@
     }
   #profile-update-btn{
     color: #FBFBFB;
+    border: 1px solid #FBFBFB;
+    font-size: 12px;
   }
 
   #file-button {
     color: pink;
   }
+
 
 .profile-right {
   color: black;
