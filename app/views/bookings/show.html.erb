@@ -1,7 +1,16 @@
 
-<div class="card-project-show mt-5 m-3 ">
-    <p> You have made a booking with <%= @booking.pro.first_name %> on <%= @booking.date %>!
+<div class="card-booking-show mt-5 m-3 ">
+  <% if @booking.pro.photo.attached? %>
+    <%= cl_image_tag @booking.pro.photo.key, class: "avatar-big " %>
+  <% else %>
+    <%= image_tag "user.png", class: "avatar-big " %> <hr>
+  <% end %>
+    <p> You have made a booking with <%= @booking.pro.first_name %> on <%= @booking.date %>! <hr> <br>
 
-  <%= link_to "Return to Dashbaord", dashboard_path  %>
+      <%= link_to "Message #{@booking.pro.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @booking.pro), method: 'post', class: "grey-btn"%> <br> <br> <br>
+
+
+    <%= link_to "Return to Dashbaord", dashboard_path  %>
+</div>
 </p>
 

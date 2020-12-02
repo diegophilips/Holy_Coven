@@ -32,3 +32,19 @@
     top: -45px;
   }
 }
+
+.card-booking-show {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  text-align: center;
+  background-color: #333;
+  border-radius: 10px;
+  height: 350px;
+  width: 350px;
+  position: absolute;
+  left: 33%;
+  top: 30%;
+    .avatar-big {
+    position: relative;
+    top: -80px;
+  }
+}
