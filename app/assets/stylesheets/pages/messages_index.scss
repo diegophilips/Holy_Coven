@@ -32,9 +32,39 @@
   color: #FBFBFB;
   border-radius: 15px;
   transition: none;
+  :focus {
+    background-color: #333;
+    border: none;
+    color: #FBFBFB;
+  }
 }
- .form-control :hover {
+ .form-control :focus {
   background-color: #333;
   border: none;
   color: #FBFBFB;
  }
+
+.text-right {
+  width: 100%;
+  display: flex;
+  span {
+    margin-left: auto;
+  }
+}
+
+.text-left {
+  display: flex;
+  width: 100%;
+  margin-right: auto;
+  span {
+    order: 2;
+    margin-left: 8px;
+  }
+  img {
+    order: 1;
+  }
+}
+
+.fake-image {
+  width: 40px;
+}
