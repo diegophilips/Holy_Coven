@@ -39,12 +39,12 @@
           <%end%>
         <div class ="message-form">
           <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-            <div class="m-3 field">
+            <div class="m-1 field">
               <%= f.text_area :body, class: "form-control" %>
             </div>
               <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-           <div>
-             <%= f.submit "Send a message", class: "brk-btn small" %>
+           <div class="move-b">
+             <%= f.submit class: "brk-btn small" %>
            </div>
           <% end %>
         </div>
