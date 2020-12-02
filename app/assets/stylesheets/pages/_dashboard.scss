@@ -153,6 +153,16 @@
   margin-top: 30px;
   margin-left: 10px;
   margin-bottom: 30px;
+  position: relative;
+}
+
+.rel-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
 
@@ -184,4 +194,38 @@
   align-items: center;
   border-radius: 15px;
 }
+
+#team-avatar {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

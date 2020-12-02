@@ -6,17 +6,22 @@
 
     <div class="hello"><h1>Hello <%= @user.artist_name %>!</h1><%= image_tag "pixeltrue-idea-1.png" %></div>
       <div class="row">
-      <% if @user.projects.empty? %>
-        <p>You don't have a current project.</p>
-      <% else %>
-      <div class="card-book col-md-6 col-sm-6" style="background-image: linear-gradient(#212529, rgba(0,0,0,0.37) ), url(<%= @user.projects.last.photo.attached? ? cl_image_path(@user.projects.last.photo.key) : asset-url("user.png")%>)">
-        <h3>Your current project</h3>
-        <h6><%= @user.projects.last.title %></h6>
-        <h6><%= @user.projects.last.description %></h6>
-        <h6>Started on: <%= @user.projects.last.start_date.strftime(' %A %e %B %Y') %></h6>
-        <h6><%= @user.projects.last.status %></h6>
-      <% end %>
-      </div>
+
+        <% if @user.projects.empty? %>
+          <p>You don't have a current project.</p>
+        <% else %>
+            <div class="card-book col-md-6 col-sm-6" style="background-image: linear-gradient(#212529, rgba(0,0,0,0.37) ), url(<%= @user.projects.last.photo.attached? ? cl_image_path(@user.projects.last.photo.key) : asset-url("user.png")%>)">
+              <h3>Your current project</h3>
+              <h6><%= @user.projects.last.title %></h6>
+              <h6><%= @user.projects.last.description %></h6>
+              <h6>Started on: <%= @user.projects.last.start_date.strftime(' %A %e %B %Y') %></h6>
+              <h6><%= @user.projects.last.status %></h6>
+              <%= link_to project_path(@user.projects.last), class: "rel-link" do %>
+
+              <% end %>
+            </div>
+        <% end %>
+
         <div class="create-button">
           <%= link_to "Create a new project", new_project_path, class: "grey-btn btn-lg" %>
         </div>
@@ -50,8 +55,22 @@
         <% if @user_bookings.empty? == true %>
           <p>You do not have any bookings yet!</p>
         <% else %>
-          <% @user_bookings.each do |booking|%>
-            <p> <%= booking.date.strftime(' %A %e %B %Y') %> </p>
+
+          <div id="team-avatar">
+            <% @user_bookings.each do |booking|%>
+            <% if booking.pro.photo.attached? %>
+            <%= link_to user_path(booking.pro) do %>
+              <%= cl_image_tag booking.pro.photo.key, class: "avatar-large" %>
+            <% end %>
+            <% else %>
+              <%= image_tag "user.png", class: "avatar-large" %>
+            <% end %>
+          </div>
+
+
+
+
+
           <% end %>
         <% end %>
       </div>
