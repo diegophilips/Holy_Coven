@@ -84,8 +84,12 @@
 
 .project-div {
   max-height: 35vh;
-  overflow: scroll;
+  overflow-y: scroll;
 
+}
+
+.project-div::-webkit-scrollbar {
+  display: none;
 }
 
 .container-item {
