@@ -31,7 +31,7 @@
   border-radius: 15px;
   position: absolute;
   right: 26%;
-  bottom: 2.5%;
+  bottom: 1.5%;
     h3 {
       position: absolute;
       top: 10%;
@@ -51,15 +51,15 @@
   h1 {
     font-weight: 700;
     letter-spacing: 2px;
-    margin-left: 20px;
+    margin-left: 80px;
     text-shadow: 0 0 15px rgba(0,0,0,0.3);
   }
   img {
     position: absolute;
-    top: 0.5%;
-    left: 50%;
+    top: 0.3%;
+    left: 46.5%;
     height: 300px;
-    width: 300px;
+    width: 350px;
   }
 }
 
@@ -80,12 +80,21 @@
       border-radius: 15px;
     }
   }
+  .message-card {
+    margin-right: 10px;
+    border-radius: 15px;
+    position: absolute;
+    right: 1%;
+    margin-top: 500px;
+    background-color: #262626;
+    color: #FBFBFB;
+    box-shadow: 30;
+  }
 }
 
 .project-div {
-  max-height: 35vh;
+  max-height: 30vh;
   overflow-y: scroll;
-
 }
 
 .project-div::-webkit-scrollbar {
@@ -97,8 +106,7 @@
 }
 
 .card-project {
-  margin-bottom: 60px;
-  margin-top: 20px;
+  margin-bottom: 30px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: #262626;
@@ -179,26 +187,15 @@
   margin-top: 20px;
 }
 
-.card-team {
-  margin: 8px;
-  margin-left: 20px;
-  background-color: #262626;
-  color: #FBFBFB;
-  box-shadow: 30;
-  padding: 35px;
-  padding-right: 35px;
-  overflow: hidden;
-  height: 220px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  border-radius: 15px;
-}
 
 #team-avatar {
   display: inline-block;
   padding-right: 15px;
 }
+
+
+
+
 
 
 
