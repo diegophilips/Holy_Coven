@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = @conversation.messages.new
+    @sender_id = current_user
   end
 
   def create

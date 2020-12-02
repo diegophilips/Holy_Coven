@@ -16,3 +16,32 @@
   background: transparent;
   position: relative;
 }
+
+
+.profile-subbody {
+  display:grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  // height: 150px;
+  max-height: auto;
+  position:relative;
+  border-bottom: 1px solid #626262;
+  padding-bottom: 24px;
+  margin-bottom: 16px;
+  .release-info {
+    padding: 0px 24px 0px 8px;
+    margin: auto 0;
+    color: #FBFBFB;
+    h6 {
+      font-size: 16px;
+      margin: 0;
+    }
+    p{
+      font-size: 12px;
+      margin:0;
+    }
+  }
+  .reviews-form{
+    color: #FBFBFB;
+  }
+}

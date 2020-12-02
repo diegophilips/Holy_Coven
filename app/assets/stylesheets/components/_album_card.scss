@@ -75,7 +75,40 @@
 .albums-four {
   display: grid;
   grid-template-rows: 150px 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:6fr;
   position:relative;
   background: #262626;
 }
+.circle-row{
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 102px;
+  grid-template-columns: repeat(6, auto);
+  position: relative;
+  margin-bottom: 16px;
+
+
+
+.circle-card {
+    background: #0A090A;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    height: 96px;
+    width: 96px;
+    margin-left: 0;
+    position: relative;
+    // border-right: 1px solid #FBFBFB;
+
+
+
+    p{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FBFBFB;
+      font-size: 12px;
+      text-align: center;
+
+    }
+}}

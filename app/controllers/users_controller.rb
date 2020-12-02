@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     @completed_projects = @user.projects.where(status: "Completed")
     @latest_release = @completed_projects[-1]
     @userservice = @user.services
+    @conversations = Conversation.all
+
+    @booking = Booking.new
+    @review = Review.new
+
 
 
     # @bookings = Booking.find(params[:id])

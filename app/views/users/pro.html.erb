@@ -4,7 +4,6 @@
     <%= image_tag "HC_LOGO_RGB-04.png" %>
   </div>
 
-
   <div class="content">
     <div class="profile-left">
       <div class="profile-card-image">
@@ -13,27 +12,23 @@
         <% else %>
           <%= image_tag "user.png"%>
         <% end %>
-      </div>
-      <% if current_user == @pro %>
+
         <div class="update-image">
-            <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
-              Update Profile Picture
-            </button>
+          <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
+            Update Profile Picture
+          </button>
         </div>
-          <div class="collapse" id="upload-image">
-            <div class="update-image update-image-body">
-              <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
-            </div>
+        <div class="collapse" id="upload-image">
+          <div class="update-image update-image-body">
+            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
           </div>
         </div>
-        <% end %>
-
+      </div>
 
       <div class="profile-left-header">
         <h6>About <%= @user.artist_name %> </h6>
         <p><%= @user.bio %> </p>
       </div>
-
     </div>
 
     <div class="profile-right">
@@ -44,32 +39,60 @@
 
       <div class="profile-subheader">
         <h6>Services</h6>
+      </div>
 
-        <div class="album-cover">
-      <!--     <%= image_tag "HC_LOGO_RGB-04.png" %> -->
-          <% @userservice.each do |service| %>
-            <p><strong><%= service.type_of_service %></strong>
-          <% end %>
-        </div>
+      <div class="circle-row">
+        <% @userservice.each do |service| %>
+          <div class="circle-card">
+            <p><%= service.type_of_service %></p>
+          </div>
+        <% end %>
+       </div>
 
-
-
-      <div class="profile-subheader">
-        <h6>Message</h6>
+      <div class="profile-subheader pt-3 pb-5">
+        <%= link_to "Message #{@user.first_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "brk-btn"%>
+        <%= link_to "View the rest of the team", services_path,  class: "brk-btn"%>
       </div>
 
       <div class="profile-subheader">
-        <h6>Reviews</h6>
-        <ul class="list-group">
-            <% @user.reviews.each do |review| %>
-              <li class="list-group-item"><%= review.content %></li>
+        <h6>Book an Appointment</h6>
+      </div>
+
+      <div class="profile-subbody">
+        <%= render partial: 'bookings/form', locals: {model: @booking, url: user_bookings_path(@user), verb: :post} %>
+      </div>
+
+      <div class="profile-subbody">
+        <p>
+          <a class="brk-btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Review <%= @user.first_name%></a>
+        </p>
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="reviews-form">
+            <%= simple_form_for [ @user, @review ] do |f| %>
+              <%= f.input :rating, as: :select, collection: [['1', '★'], ['2', '★★'], ['3', '★★★'], ['4', '★★★★'], ['5', '★★★★★']], label_method: :second, value_method: :first %>
+              <%= f.input :content %>
+              <%= f.submit "Submit review", class: "brk-btn" %>
             <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-subheader">
+        <h6><%= @user.first_name%>'s Reviews</h6>
+      </div>
+
+      <div class="profile-subbody-reviews">
+        <ul class="list-group">
+          <% @user.reviews.each do |review| %>
+            <li class="list-group-item">
+              <% review.rating.times do  %>
+                <%= '★' %>
+              <% end %>
+              <br><%= review.content %>
+            </li>
+          <% end %>
         </ul>
       </div>
-
-      </div>
-    </div>
     </div>
   </div>
 </div>
-

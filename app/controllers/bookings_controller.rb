@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     # @user = current_user
     # @pro = User.find(params[:user_id])
+
   end
 
   def create
