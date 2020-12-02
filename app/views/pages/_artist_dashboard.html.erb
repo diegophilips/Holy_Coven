@@ -13,7 +13,7 @@
         <h3>Your current project</h3>
         <h6><%= @user.projects.last.title %></h6>
         <h6><%= @user.projects.last.description %></h6>
-        <h6>Start Date: <%= @user.projects.last.start_date %></h6>
+        <h6>Started on: <%= @user.projects.last.start_date.strftime(' %A %e %B %Y') %></h6>
         <h6><%= @user.projects.last.status %></h6>
       <% end %>
       </div>
@@ -51,7 +51,7 @@
           <p>You do not have any bookings yet!</p>
         <% else %>
           <% @user_bookings.each do |booking|%>
-            <p> <%= booking.date %> </p>
+            <p> <%= booking.date.strftime(' %A %e %B %Y') %> </p>
           <% end %>
         <% end %>
       </div>
