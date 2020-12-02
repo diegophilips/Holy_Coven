@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:artist_name, :bio, :spotify_artist_link, :facebook_link, :instagram_link])
 
   end
+
+
+def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+end
+
 end
