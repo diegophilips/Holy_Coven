@@ -63,6 +63,9 @@
   }
 }
 
+#iframe {
+  border-radius: 15px;
+}
 
 .dashboard-container {
   // align-items: center;
@@ -73,6 +76,9 @@
   float: right;
   margin-top: 40px;
   border-radius: 15px;
+    .iframe {
+      border-radius: 15px;
+    }
   }
 }
 
@@ -175,4 +181,8 @@
   border-radius: 15px;
 }
 
+
+.container-item::-webkit-scrollbar {   display: none; }  
+
+.container-item {   -ms-overflow-style: none;  scrollbar-width: none; }
 
