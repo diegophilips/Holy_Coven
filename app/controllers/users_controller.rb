@@ -23,8 +23,9 @@ class UsersController < ApplicationController
     @latest_release = @completed_projects[-1]
     @userservice = @user.services
     @conversations = Conversation.all
-    @review = Review.new
+
     @booking = Booking.new
+    @review = Review.new
 
 
 

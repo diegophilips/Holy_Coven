@@ -22,7 +22,8 @@
   display:grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
-  height: 150px;
+  // height: 150px;
+  max-height: auto;
   position:relative;
   border-bottom: 1px solid #626262;
   padding-bottom: 24px;
@@ -39,5 +40,8 @@
       font-size: 12px;
       margin:0;
     }
+  }
+  .reviews-form{
+    color: #FBFBFB;
   }
 }
