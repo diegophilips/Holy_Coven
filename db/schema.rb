@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_083831) do
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "recipient_id"
-    t.datetime "created_at", precision: 6, default: "2020-12-01 16:09:19", null: false
-    t.datetime "updated_at", precision: 6, default: "2020-12-01 16:09:19", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
