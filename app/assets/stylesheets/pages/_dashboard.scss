@@ -12,7 +12,7 @@
   max-width: 1100px;
   .create-button {
   margin-left: 120px;
-  margin-top: 100px;
+  margin-top: 120px;
   }
   .card-team {
   margin: 8px;
@@ -31,7 +31,7 @@
   border-radius: 15px;
   position: absolute;
   right: 26%;
-  bottom: 2%;
+  bottom: 2.5%;
     h3 {
       position: absolute;
       top: 10%;
@@ -49,6 +49,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border-radius: 15px;
   h1 {
+    font-weight: 700;
+    letter-spacing: 2px;
     margin-left: 20px;
     text-shadow: 0 0 15px rgba(0,0,0,0.3);
   }
@@ -129,7 +131,6 @@
 
 
 .card-book {
-  margin: 0px 0px 8px 0px;
   background-color: #262626;
   color: #FBFBFB;
   box-shadow: 30;
@@ -139,7 +140,9 @@
   text-align: center;
   height: 250px;
   width: 530px;
+  margin-top: 30px;
   margin-left: 10px;
+  margin-bottom: 30px;
 }
 
 

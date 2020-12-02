@@ -15,10 +15,10 @@
     <div class="card__content">
        <h2 class="card__title"><%= service.type_of_service %></h2>
         <%= service.description %>
-        <div class="stick-to">
-          <p><%= link_to "View the team", pros_path(service_name: service.type_of_service), class: "brk-btn" %></p>
-        </div>
     </div>
+        <div class="stick-to">
+          <p><%= link_to "View the team", pros_path(service_name: service.type_of_service), class: "grey-btn" %></p>
+        </div>
     </div>
   </div>
   <% end %>

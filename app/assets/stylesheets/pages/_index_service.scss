@@ -99,8 +99,9 @@
   overflow: hidden;
 
   .stick-to {
-    margin-top: 30px;
-    left: 30%;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
 
   }
   &__image-container {
