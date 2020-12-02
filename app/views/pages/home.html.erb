@@ -1,3 +1,8 @@
+<div class="wheel-logo">
+  <%= image_tag "HC_LOGO_RGB-04.png", height: 400, width: 400, overflow: :hidden %>
+</div>
+
+
 <div class="top">
 
 <!--   svg of holy coven logo, each path is one letter -->
@@ -12,7 +17,6 @@
   <path d="M422.462 13.2V27.2H441.262V36.08H422.462V50.88H443.662V60H411.262V4.07998H443.662V13.2H422.462Z" stroke="#FFFCFC" stroke-width="3" mask="url(#path-1-outside-1)"/>
   <path d="M501.6 60H490.4L465.04 21.68V60H453.84V4.07998H465.04L490.4 42.48V4.07998H501.6V60Z" stroke="#FFFCFC" stroke-width="3" mask="url(#path-1-outside-1)"/>
   </svg> <br> <br>
-
 
   <% if user_signed_in?%>
     <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-dark" %>

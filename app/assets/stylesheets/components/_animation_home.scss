@@ -1,7 +1,15 @@
+.wheel-logo {
+  vertical-align: center;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
 .top {
-  margin-top: 300px;
+  margin-top: 30px;
   margin-bottom: 50px;
   text-align: center;
+  padding: 10px;
 }
 
 @keyframes line-anim {
@@ -25,5 +33,6 @@ canvas {
   top: 0;
   left: 0;
 }
+
 
 
