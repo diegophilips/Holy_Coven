@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :signed_in
   def index
     @projects = Project.all
+    @user = current_user
 
   end
 
