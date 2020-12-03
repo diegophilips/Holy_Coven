@@ -28,32 +28,37 @@
             </div>
           </div>
         </div>
-      <div class="profile-spotify">
-        <iframe src='<%=@user.spotify_artist_link%>' width=100% height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
+      <% if @user.spotify_artist_link.present? %>
+        <div class="profile-spotify">
+          <iframe src="<%= @user.spotify_artist_link.split("?").first.gsub("artist", "embed/artist") %>" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+      <% end %>
 
-<!-- https://open.spotify.com/artist/4ClziihVpBeFXNyDH83Lde?si=qnFHzuwrQsyHKHtPNPNpcg
- -->      <div class="profile-left-header">
+     <div class="profile-left-header">
         <h6>About <%= @user.artist_name %> </h6>
         <p><%= @user.bio %> </p>
       </div>
       <div class="profile-left-header">
         <h6>Follow <%= @user.artist_name %> </h6>
-        <% if @user = current_user %>
-          <% if @user.instagram_link.nil? && @user.twitter_link.nil? && @user.facebook_link.nil? %>
+          <% if @user_socials == ["","",""] %>
             <p>Update your profile to add your social media!</p>
           <% else %>
-            <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
-              <i class="fab fa-instagram-square"></i>
-            </a>
-            <a href="https://www.twitter.com/<%= @user.twitter_link %>/">
-              <i class="fab fa-twitter-square"></i>
-            </a>
+            <% if @user.instagram_link.blank? == false %>
+              <a href="https://www.instagram.com/<%= @user.instagram_link %>/">
+                <i class="fab fa-instagram-square"></i>
+              </a>
+            <% end %>
+            <% if @user.twitter_link.blank? == false   %>
+              <a href="https://www.twitter.com/<%= @user.twitter_link %>/">
+                <i class="fab fa-twitter-square"></i>
+              </a>
+            <% end %>
+            <% if @user.facebook_link.blank? == false %>
             <a href="https://www.facebook.com/<%= @user.facebook_link %>/">
               <i class="fab fa-facebook-square"></i>
             </a>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
     </div>
 

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @latest_release = @completed_projects[-1]
     @userservice = @user.services
     @conversations = Conversation.all
-
+    @user_socials = [@user.facebook_link, @user.instagram_link, @user.twitter_link]
     @booking = Booking.new
     @review = Review.new
 
