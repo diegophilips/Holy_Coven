@@ -9,9 +9,11 @@
     list-style-type: none;
     border-bottom: 1px solid #262626;
   }
-
   border-radius: 8px;
   padding: 8px;
+  .mess-info a:hover {
+    color: #333;
+  }
 }
 
 .mess.info {
