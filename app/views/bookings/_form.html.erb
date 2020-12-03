@@ -2,10 +2,10 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <div class="form-inputs">
-        <%= f.input :date, label: "Date", as: :date, html5: true%>
+        <%= f.input :date, as: :date, html5: true%>
       </div>
           <div class="form-actions">
-            <%= f.submit class: "btn btn-outline-dark  w-70"%>
+            <%= f.submit class: "btn btn-outline-light"%>
           </div>
     <% end %>
 

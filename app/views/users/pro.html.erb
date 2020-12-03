@@ -13,16 +13,19 @@
           <%= image_tag "user.png"%>
         <% end %>
 
-        <div class="update-image">
-          <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
-            Update Profile Picture
-          </button>
-        </div>
-        <div class="collapse" id="upload-image">
-          <div class="update-image update-image-body">
-            <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+
+        <% if @pro == current_user %>
+          <div class="update-image">
+            <button class="update-image-btn" type="button" data-toggle="collapse" data-target="#upload-image" aria-expanded="false" aria-controls="upload-image">
+              Update Profile Picture
+            </button>
           </div>
-        </div>
+          <div class="collapse" id="upload-image">
+            <div class="update-image update-image-body">
+              <%= render partial: 'users/form', locals: {model: @user, url: user_registration_path, verb: :patch} %>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <div class="profile-left-header">
