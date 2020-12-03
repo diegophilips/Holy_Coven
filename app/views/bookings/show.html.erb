@@ -1,5 +1,5 @@
 
-<div class="card-booking-show mt-5 m-3 ">
+<div class="card-booking-show mt-5 m-3 pr-5 pl-5">
   <% if @booking.pro.photo.attached? %>
     <%= cl_image_tag @booking.pro.photo.key, class: "avatar-big " %>
   <% else %>
