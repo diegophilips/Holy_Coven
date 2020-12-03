@@ -42,17 +42,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_171724) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "pro_id"
     t.date "date"
-    t.bigint "userprojects_id"
     t.index ["pro_id"], name: "index_bookings_on_pro_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-    t.index ["userprojects_id"], name: "index_bookings_on_userprojects_id"
   end
 
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "recipient_id"
-    t.datetime "created_at", precision: 6, default: "2020-12-01 16:09:19", null: false
-    t.datetime "updated_at", precision: 6, default: "2020-12-01 16:09:19", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
