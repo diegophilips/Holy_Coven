@@ -96,7 +96,7 @@
           </div>
         <% else %>
           <div class="albums-one">
-            <%= @latest_release[-1].photo %>
+            <%= cl_image_tag @latest_release[-1].photo.key %>
           </div>
           <div class="release-info">
             <h6><strong><%=@latest_release.title %></strong></h6>
@@ -134,7 +134,7 @@
       <% elsif @ongoing_projects.count == 2%>
         <div class="albums-two">
           <div class="album-cover">
-            <%= image_tag @ongoing_projects[-2].photo %>
+            <%= cl_image_tag @ongoing_projects[-2].photo.key %>
           </div>
           <div class="release-info">
             <h6><strong><%=@ongoing_projects[-1].title%>:</strong></h6>
