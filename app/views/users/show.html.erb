@@ -96,7 +96,9 @@
           </div>
         <% else %>
           <div class="albums-one">
-            <%= cl_image_tag @latest_release[-1].photo.key %>
+            <div class="album-cover">
+              <%= cl_image_tag @latest_release.photo.key %>
+            </div>
           </div>
           <div class="release-info">
             <h6><strong><%=@latest_release.title %></strong></h6>
@@ -128,20 +130,19 @@
           <div class="release-info">
             <h6><strong><%= link_to @ongoing_projects[-1].title, project_path(@ongoing_projects[-1]) %></strong>:</h6>
             <p><em><%= @ongoing_projects[-1].status %></em></p>
-
           </div>
         </div>
       <% elsif @ongoing_projects.count == 2%>
         <div class="albums-two">
           <div class="album-cover">
-            <%= cl_image_tag @ongoing_projects[-2].photo.key %>
+            <%= cl_image_tag @ongoing_projects[-1].photo.key %>
           </div>
           <div class="release-info">
             <h6><strong><%=@ongoing_projects[-1].title%>:</strong></h6>
               <p><em><%= @ongoing_projects[-1].status %></em></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-2].photo.key %>
           </div>
           <div class="release-info">
             <h6><strong><%=@ongoing_projects[-2].title%>:</strong></h6>
@@ -151,63 +152,40 @@
       <% elsif @ongoing_projects.count == 3%>
         <div class="albums-three">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-1].photo.key %>
             <p><strong><%=@ongoing_projects[-1].title%></strong>:<br>
               <%= @ongoing_projects[-1].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-2].photo.key %>
             <p><strong><%=@ongoing_projects[-2].title%></strong>:<br>
               <%= @ongoing_projects[-2].status %></p>
           </div>
           <div class="album-cover">
-          <%= image_tag "HC_LOGO_RGB-04.png" %>
-          <p><strong><%=@ongoing_projects[-3].title%></strong>:<br>
-            <%= @ongoing_projects[-3].status %></p>
+            <%= cl_image_tag @ongoing_projects[-3].photo.key %>
+            <p><strong><%=@ongoing_projects[-3].title%></strong>:<br>
+              <%= @ongoing_projects[-3].status %></p>
           </div>
         </div>
-      <% elsif @ongoing_projects.count == 4%>
+      <% elsif @ongoing_projects.count >= 4%>
         <div class="albums-four">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-1].photo.key %>
             <p><strong><%=@ongoing_projects[-1].title%></strong>:<br>
               <%= @ongoing_projects[-1].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-2].photo.key %>
             <p><strong><%=@ongoing_projects[-2].title%></strong>:<br>
               <%= @ongoing_projects[-2].status %></p>
           </div>
           <div class="album-cover">
-          <%= image_tag "HC_LOGO_RGB-04.png" %>
+          <%= cl_image_tag @ongoing_projects[-3].photo.key %>
           <p><strong><%=@ongoing_projects[-3].title%></strong>:<br>
             <%= @ongoing_projects[-3].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <p><strong><%=@ongoing_projects[-4].title%></strong>:<br>
-              <%= @ongoing_projects[-4].status %></p>
-          </div>
-        </div>
-      <% elsif @ongoing_projects.count <= 5%>
-        <div class="albums-four">
-          <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <p><strong><%=@ongoing_projects[-1].title%></strong>:<br>
-              <%= @ongoing_projects[-1].status %></p>
-          </div>
-          <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
-            <p><strong><%=@ongoing_projects[-2].title%></strong>:<br>
-              <%= @ongoing_projects[-2].status %></p>
-          </div>
-          <div class="album-cover">
-          <%= image_tag "HC_LOGO_RGB-04.png" %>
-          <p><strong><%=@ongoing_projects[-3].title%></strong>:<br>
-            <%= @ongoing_projects[-3].status %></p>
-          </div>
-          <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @ongoing_projects[-4].photo.key %>
             <p><strong><%=@ongoing_projects[-4].title%></strong>:<br>
               <%= @ongoing_projects[-4].status %></p>
           </div>
@@ -235,7 +213,7 @@
         </div>
         <div class="albums-one">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-1].photo.key %>
           </div>
           <div class="release-info">
             <p><strong><%=@completed_projects[-1].title%></strong>:<br>
@@ -248,14 +226,14 @@
         </div>
         <div class="albums-two">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-1].photo.key %>
           </div>
           <div class="release-info">
             <h6><%=@completed_projects[-1].title%></h6>:
               <%= @completed_projects[-1].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-2].photo.key %>
           </div>
           <div class="release-info">
             <h6><%=@completed_projects[-2].title%></h6>:
@@ -268,17 +246,17 @@
         </div>
         <div class="albums-three">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-1].photo.key %>
             <p><strong><%=@completed_projects[-1].title%></strong>:<br>
               <%= @completed_projects[-1].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-2].photo.key %>
             <p><strong><%=@completed_projects[-2].title%></strong>:<br>
               <%= @completed_projects[-2].status %></p>
           </div>
           <div class="album-cover">
-          <%= image_tag "HC_LOGO_RGB-04.png" %>
+          <%= cl_image_tag @completed_projects[-3].photo.key %>
           <p><strong><%=@completed_projects[-3].title%></strong>:<br>
             <%= @completed_projects[-3].status %></p>
           </div>
@@ -289,22 +267,22 @@
       </div>
         <div class="albums-four">
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-1].photo.key %>
             <p><strong><%=@completed_projects[-1].title%></strong>:<br>
               <%= @completed_projects[-1].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-2].photo.key %>
             <p><strong><%=@completed_projects[-2].title%></strong>:<br>
               <%= @completed_projects[-2].status %></p>
           </div>
           <div class="album-cover">
-          <%= image_tag "HC_LOGO_RGB-04.png" %>
+          <%= cl_image_tag @completed_projects[-3].photo.key %>
           <p><strong><%=@completed_projects[-3].title%></strong>:<br>
             <%= @completed_projects[-3].status %></p>
           </div>
           <div class="album-cover">
-            <%= image_tag "HC_LOGO_RGB-04.png" %>
+            <%= cl_image_tag @completed_projects[-4].photo.key %>
             <p><strong><%=@completed_projects[-4].title%></strong>:<br>
               <%= @completed_projects[-4].status %></p>
           </div>
